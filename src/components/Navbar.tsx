@@ -10,9 +10,11 @@ const Navbar: React.FC = () => {
 
   const sections = [
     { id: 'home', name: 'Home' },
-    { id: 'skills', name: 'Skills' },
+    { id: 'about', name: 'About' },
     { id: 'experience', name: 'Experience' },
     { id: 'projects', name: 'Projects' },
+    { id: 'skills', name: 'Skills' },
+    { id: 'education', name: 'Education' },
   ];
 
   const handleScroll = () => {
