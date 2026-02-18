@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import ExperienceCard from '@/components/ExperienceCard';
 
 export default function Home() {
   return (
@@ -49,16 +50,18 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold text-center mb-8">Experience</h2>
         <div className="space-y-8">
-          <div className="p-6 border rounded-lg shadow-md">
-            <h3 className="text-2xl font-semibold">Software Engineer</h3>
-            <p className="text-gray-500">Company Name | Dates</p>
-            <ul className="list-disc list-inside text-gray-700 mt-2">
-              <li>Developed scalable systems...</li>
-              <li>Designed microservices...</li>
-              <li>Managed cloud infrastructure...</li>
-            </ul>
-          </div>
-          {/* Add more experience entries here */}
+          <ExperienceCard
+            title="Software Engineer"
+            company="Various Companies"
+            dates="3+ years"
+            description="Focused on building robust and efficient solutions across various domains."
+            responsibilities={[
+              "Developed scalable systems",
+              "Designed microservices",
+              "Managed cloud infrastructure",
+              "Utilized Python, Node.js, PostgreSQL, Docker, and Kubernetes"
+            ]}
+          />
         </div>
       </motion.section>
 
