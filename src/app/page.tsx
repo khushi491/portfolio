@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { TimelineCard } from "@/components/TimelineCard"; // Assuming a typewriter component will be created
+import TimelineCard from "@/components/TimelineCard";
+import ProjectCard from "@/components/ProjectCard"; // Assuming a typewriter component will be created
 
 export default function Home() {
   const words = [
@@ -171,6 +172,84 @@ export default function Home() {
               "Created and maintained REST APIs for efficient data exchange.",
               "Contributed to SDLC workflows, focusing on agile methodologies."
             ]}
+          />
+        </div>
+      </motion.section>
+
+      {/* Projects Section */}
+      <motion.section
+        id="projects"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="w-full max-w-5xl mx-auto py-16 md:py-24 px-4 text-dark-text-secondary"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-dark-text-primary text-center mb-12">
+          Advanced Projects – Technical Depth
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* CareerBakers */}
+          <ProjectCard
+            title="CareerBakers"
+            stack="Node.js, Python, Django, React, Redux"
+            description="AI-powered resume & interview platform designed to optimize job search efficiency."
+            highlights={[
+              "AI agent orchestration for personalized feedback and suggestions.",
+              "Sophisticated resume scoring system based on industry standards.",
+              "End-to-end architecture design for a scalable and robust platform."
+            ]}
+            // link="https://career-bakers.com" // Example link
+          />
+
+          {/* ArcPay */}
+          <ProjectCard
+            title="ArcPay"
+            stack="Python, PostgreSQL, Docker, Kubernetes"
+            description="Cross-chain distributed payment system enabling seamless transactions across different blockchain networks."
+            highlights={[
+              "Developed a fault-tolerant backend ensuring high reliability and data integrity.",
+              "Implemented complex settlement workflow orchestration for secure transfers."
+            ]}
+            // link="https://arcpay.io" // Example link
+          />
+
+          {/* VitalSense (Antler Hackathon Winner) */}
+          <ProjectCard
+            title="VitalSense"
+            stack="AI, Python, Cloud (AWS/GCP), IoT"
+            description="Real-time AI health platform, recognized as an Antler Hackathon Winner, providing proactive health insights."
+            highlights={[
+              "Built an AI Nurse Agent for intelligent health monitoring and alerts.",
+              "Designed containerized cloud deployment strategies for scalability.",
+              "Developed real-time backend processing for immediate data analysis."
+            ]}
+            // link="https://vitalsense.health" // Example link
+          />
+
+          {/* Devolution-World */}
+          <ProjectCard
+            title="Devolution-World"
+            stack="Node.js, Redis, Microservices"
+            description="High-performance backend for a gaming platform supporting 10,000+ concurrent users."
+            highlights={[
+              "Implemented Redis caching strategies for ultra-low latency data access.",
+              "Achieved significant throughput optimization for a seamless user experience.",
+              "Reduced latency across distributed services through advanced engineering techniques."
+            ]}
+            // link="https://devolution.world" // Example link
+          />
+
+          {/* NFT Marketplace */}
+          <ProjectCard
+            title="NFT Marketplace"
+            stack="Node.js, Solidity, Ethereum, IPFS"
+            description="A robust and scalable platform for buying, selling, and trading Non-Fungible Tokens."
+            highlights={[
+              "Developed secure APIs for minting, listing, and transacting NFTs.",
+              "Implemented CI/CD automation for rapid and reliable deployment.",
+              "Scaled infrastructure to handle 200% growth in user base and transactions."
+            ]}
+            // link="https://nft-market.place" // Example link
           />
         </div>
       </motion.section>
