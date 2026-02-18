@@ -358,6 +358,52 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Contact Section */}
+      <motion.section
+        id="contact"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        className="w-full max-w-5xl mx-auto py-16 md:py-24 px-4 text-dark-text-secondary text-center"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-dark-text-primary mb-12">
+          Let’s Build Resilient Systems.
+        </h2>
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <motion.a
+            href="mailto:your.email@example.com"
+            whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-dark-text-primary bg-primary hover:bg-secondary md:py-4 md:text-lg md:px-10 transition-all duration-300"
+          >
+            <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13V3"></path></svg>
+            Email
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com/in/khushiparmar"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-dark-text-primary bg-dark-background-medium border border-dark-border hover:bg-primary md:py-4 md:text-lg md:px-10 transition-all duration-300"
+          >
+            <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            LinkedIn
+          </motion.a>
+          <motion.a
+            href="https://github.com/khushi491"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-dark-text-primary bg-dark-background-medium border border-dark-border hover:bg-primary md:py-4 md:text-lg md:px-10 transition-all duration-300"
+          >
+            <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77C19.4 3.92 19 2.5 19 2c0 0-1 0-3 1.5l-3 1.5c-1 0-4 1.5-4 1.5"></path></svg>
+            GitHub
+          </motion.a>
+        </div>
+      </motion.section>
+
     </main>
   );
 }
