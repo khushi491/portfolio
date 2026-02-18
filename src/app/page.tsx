@@ -6,14 +6,14 @@ import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main className="flex min-h-screen flex-col items-center justify-center pb-16">
       {/* Hero Section */}
       <motion.section
         id="home"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center my-16 max-w-7xl flex flex-col items-center"
+        className="text-center w-full max-w-7xl mx-auto py-16 md:py-24 px-4 flex flex-col items-center"
       >
                   <Image
                     src="/profile-placeholder.svg" // Placeholder image
@@ -35,7 +35,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="my-16 w-full max-w-7xl"
+        className="w-full max-w-7xl mx-auto py-16 md:py-24 px-4"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
@@ -57,7 +57,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="my-16 w-full max-w-7xl"
+        className="w-full max-w-7xl mx-auto py-16 md:py-24 px-4"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Experience</h2>
         <div className="space-y-8">
@@ -82,7 +82,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="my-16 w-full max-w-7xl"
+        className="w-full max-w-7xl mx-auto py-16 md:py-24 px-4"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

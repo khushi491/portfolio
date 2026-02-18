@@ -10,7 +10,7 @@ const ContactSection: React.FC = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.8 }}
-      className="text-center my-16 w-full max-w-7xl p-8 bg-background-light dark:bg-background-dark rounded-lg shadow-md"
+      className="text-center w-full max-w-7xl mx-auto py-16 md:py-24 px-4 bg-background-light dark:bg-background-dark rounded-lg shadow-md"
     >
       <h2 className="text-4xl font-bold mb-8 text-text-light dark:text-text-dark">Get in Touch</h2>
       <p className="text-xl text-text-light dark:text-text-dark mb-8">
