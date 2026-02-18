@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"; // Assuming a typewriter component will be created
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { TimelineCard } from "@/components/TimelineCard"; // Assuming a typewriter component will be created
 
 export default function Home() {
   const words = [
@@ -117,6 +118,60 @@ export default function Home() {
           <div className="md:w-1/2 flex justify-center items-center h-64 border border-dark-border rounded-lg bg-dark-background-medium">
             <p className="text-dark-text-secondary">Animated Architecture Diagram Coming Soon</p>
           </div>
+        </div>
+      </motion.section>
+
+      {/* Experience Section */}
+      <motion.section
+        id="experience"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="w-full max-w-5xl mx-auto py-16 md:py-24 px-4 text-dark-text-secondary"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-dark-text-primary text-center mb-12">
+          Experience – Engineering Timeline
+        </h2>
+        <div className="relative border-l-2 border-dark-border ml-4 pl-8 space-y-12">
+          {/* Webforest LLP */}
+          <TimelineCard
+            index={0}
+            company="Webforest LLP"
+            role="Software Engineer"
+            duration="Jan 2022 - Present"
+            description={[
+              "Operated 8+ production microservices, ensuring high availability and performance.",
+              "Managed systems handling 50K+ daily requests with 99.8% uptime.",
+              "Achieved a 35% performance boost through targeted optimizations.",
+              "Implemented Docker and Kubernetes for seamless orchestration and scaling."
+            ]}
+          />
+
+          {/* Wedowebapps LLC */}
+          <TimelineCard
+            index={1}
+            company="Wedowebapps LLC"
+            role="Full Stack Developer"
+            duration="Aug 2020 - Dec 2021"
+            description={[
+              "Designed and developed applications using TypeScript and React architecture.",
+              "Implemented robust Redux state management systems.",
+              "Optimized data flow for enhanced user experience and application responsiveness."
+            ]}
+          />
+
+          {/* Techyhood Software Solution */}
+          <TimelineCard
+            index={2}
+            company="Techyhood Software Solution"
+            role="Backend Developer Intern"
+            duration="May 2020 - Jul 2020"
+            description={[
+              "Developed Java + Spring backend systems for various client projects.",
+              "Created and maintained REST APIs for efficient data exchange.",
+              "Contributed to SDLC workflows, focusing on agile methodologies."
+            ]}
+          />
         </div>
       </motion.section>
 
