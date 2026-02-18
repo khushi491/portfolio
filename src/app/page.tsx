@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import ExperienceCard from '@/components/ExperienceCard';
+import Image from "next/image";
+import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   return (
@@ -11,13 +13,19 @@ export default function Home() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center my-16 max-w-7xl"
+        className="text-center my-16 max-w-7xl flex flex-col items-center"
       >
-        <h1 className="text-5xl font-bold mb-4">Khushi Parmar</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          3+ years as a Software Engineer working on scalable systems,
-          microservices, and cloud infrastructure. Passionate about building
-          robust and efficient solutions using Python, Node.js, PostgreSQL, Docker, and Kubernetes.
+                  <Image
+                    src="/profile-placeholder.svg" // Placeholder image
+                    alt="Khushi Parmar"
+                    width={150}
+                    height={150}
+                    className="rounded-full mb-6 border-4 border-purple-500 shadow-lg"
+                  />        <h1 className="text-5xl font-bold mb-4">Khushi Parmar</h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Passionate Software Engineer with over 3 years of experience in designing, developing, and deploying scalable systems and robust microservices.
+          My expertise lies in crafting efficient solutions using modern technologies like Python, Node.js, PostgreSQL, Docker, and Kubernetes, with a strong foundation in cloud infrastructure.
+          I thrive on tackling complex challenges and contributing to innovative projects.
         </p>
       </motion.section>
 
@@ -96,6 +104,9 @@ export default function Home() {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Contact Section */}
+      <ContactSection />
     </main>
   );
 }
