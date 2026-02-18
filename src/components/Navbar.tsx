@@ -6,33 +6,70 @@ import DarkModeToggle from './DarkModeToggle'; // Import DarkModeToggle
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero'); // Initialize with 'hero'
 
   const sections = [
+    { id: 'hero', name: 'Home' }, // Only for scroll detection, not for rendering links
+    { id: 'about', name: 'About' },
     { id: 'experience', name: 'Experience' },
     { id: 'projects', name: 'Projects' },
     { id: 'skills', name: 'Skills' },
+    { id: 'education', name: 'Education' },
     { id: 'contact', name: 'Contact' },
   ];
+
+  const navLinks = [
+    { id: 'about', name: 'About' },
+    { id: 'experience', name: 'Experience' },
+    { id: 'projects', name: 'Projects' },
+    { id: 'skills', name: 'Skills' },
+    { id: 'education', name: 'Education' },
+    { id: 'contact', name: 'Contact' },
+  ];
+
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    let currentActiveSection = 'hero'; // Default to hero
+
+    for (const section of sections) {
+      const element = document.getElementById(section.id);
+      if (element) {
+        if (scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
+          currentActiveSection = section.id;
+          break;
+        }
+      }
+    }
+    setActiveSection(currentActiveSection);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once on mount to set initial active section
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full z-50 py-6 bg-dark-background-light dark:bg-dark-background-DEFAULT"
+      className="fixed top-0 left-0 w-full z-50 py-6 bg-white/80 backdrop-blur-lg"
     >
-      <div className="flex justify-between items-center max-w-[980px] mx-auto px-6">
-        <Link href="#hero" className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+      <div className="flex justify-between items-center max-w-[1100px] mx-auto px-6">
+        <Link href="#hero" className="text-2xl font-bold text-neutral-900">
           Khushi Parmar
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 items-center"> {/* Added items-center for alignment */}
-          {sections.map((section) => (
+          {navLinks.map((section) => (
             <Link
               key={section.id}
               href={`#${section.id}`}
-              className="text-gray-600 dark:text-gray-400 font-medium hover:text-black dark:hover:text-white transition-colors duration-300"
+              className={`relative font-medium transition-colors duration-300
+                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-neutral-600 hover:text-neutral-900 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
+              `}
             >
               {section.name}
             </Link>
@@ -43,7 +80,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden flex items-center">
           <button
-            className="text-gray-600 dark:text-gray-400 focus:outline-none"
+            className="text-neutral-600 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
@@ -70,13 +107,15 @@ const Navbar: React.FC = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           transition={{ duration: 0.3 }}
-          className="md:hidden mt-4 bg-light-background-medium dark:bg-dark-background-medium rounded-md shadow-lg"
+          className="md:hidden mt-4 bg-white rounded-md shadow-lg"
         >
-          {sections.map((section) => (
+          {navLinks.map((section) => (
             <Link
               key={section.id}
               href={`#${section.id}`}
-              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              className={`block px-4 py-2 relative transition-colors duration-300
+                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-neutral-600 hover:bg-neutral-200 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
+              `}
               onClick={() => setIsOpen(false)}
             >
               {section.name}

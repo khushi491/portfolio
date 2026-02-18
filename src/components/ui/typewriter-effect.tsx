@@ -63,7 +63,7 @@ export const TypewriterEffectSmooth = ({
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
             className={cn(
-              "text-dark-text-primary text-xl md:text-2xl font-medium",
+              "text-neutral-900 text-xl md:text-2xl font-medium",
               words[currentWordIndex].className
             )}
           >

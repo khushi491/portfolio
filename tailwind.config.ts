@@ -10,32 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0A84FF', // Vibrant Blue
-        secondary: '#3DDC84', // Complementary Green
-        dark: { // Dark mode specific palette
-          background: {
-            DEFAULT: '#0A0A0A', // Main dark background
-            medium: '#1A1A1A', // Slightly lighter dark background
-            light: '#2A2A2A',  // Even lighter dark background
-          },
-          text: {
-            primary: '#FFFFFF', // White text
-            secondary: '#E0E0E0', // Soft gray text
-          },
-          border: '#3A3A3A', // Subtle border color
+        primary: '#0A84FF', // Vibrant Blue as the single accent color
+        neutral: {
+          50: '#FAFAFA', // Off-white for background
+          200: '#E5E7EB', // Thin borders
+          300: '#D1D5DB', // Hover borders
+          600: '#4B5563', // Secondary text
+          900: '#1F2937', // Primary text
         },
-        light: { // Light mode fallback (though focus is dark theme)
-          background: {
-            DEFAULT: '#FFFFFF',
-            medium: '#F3F4F6',
-            light: '#E5E7EB',
-          },
-          text: {
-            primary: '#1F2937',
-            secondary: '#4B5563',
-          },
-          border: '#D1D5DB',
-        }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

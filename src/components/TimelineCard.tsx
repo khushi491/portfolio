@@ -7,6 +7,7 @@ interface TimelineCardProps {
   role: string;
   duration: string;
   description: string[];
+  techStack?: string[]; // Add techStack prop
   index: number; // Add index prop
 }
 
@@ -15,6 +16,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
   role,
   duration,
   description,
+  techStack, // Destructure techStack
   index, // Destructure index
 }) => {
 
@@ -28,7 +30,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
       if (offset > lastIndex) {
         parts.push(text.substring(lastIndex, offset));
       }
-      parts.push(<span key={offset} className="font-semibold text-black dark:text-white">{match}</span>);
+      parts.push(<span key={offset} className="font-semibold text-neutral-900">{match}</span>);
       lastIndex = offset + match.length;
       return match; // Return the match to satisfy replace callback signature
     });
@@ -45,15 +47,24 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.8 }}
-      className="bg-white dark:bg-dark-background-medium p-7 rounded-xl border border-gray-200 dark:border-gray-800 relative group transition-all duration-200 ease-in-out hover:border-gray-300 dark:hover:border-gray-600 hover:-translate-y-1"
+      className="bg-white p-7 rounded-xl border border-neutral-200 relative group transition-all duration-200 ease-in-out hover:border-neutral-300 hover:-translate-y-1 shadow-sm"
     >
-      <h3 className="text-2xl font-semibold text-text-primary mb-1">{role}</h3>
-      <p className="text-lg text-text-secondary mb-2">{company} | {duration}</p>
-      <ul className="list-disc list-inside space-y-1 text-text-secondary mb-4">
+      <h3 className="text-2xl font-semibold text-neutral-900 mb-1">{role}</h3>
+      <p className="text-lg text-neutral-600 mb-2">{company} | {duration}</p>
+      <ul className="list-disc list-inside space-y-1 text-neutral-600 mb-4">
         {description.map((item, idx) => (
           <li key={idx}>{formatDescription(item)}</li>
         ))}
       </ul>
+      {techStack && (
+        <div className="flex flex-wrap gap-2 mt-4">
+          {techStack.map((tech, idx) => (
+            <span key={idx} className="inline-block px-3.5 py-2 bg-neutral-200 rounded-full text-sm text-neutral-900">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 };
