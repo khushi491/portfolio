@@ -25,15 +25,37 @@ export default function Home() {
         if (!res.ok) throw new Error("Failed to fetch repos");
         return res.json();
       })
-      .then((data: { name: string; description: string | null; html_url: string; language: string | null }[]) => {
-        setRepos(
-          data.map((r) => ({
-            name: r.name,
-            description: r.description || "No description.",
-            html_url: r.html_url,
-            language: r.language,
-          }))
+      .then(async (data: { name: string; description: string | null; html_url: string; language: string | null }[]) => {
+        const reposWithReadmes = await Promise.all(
+          data.map(async (repo) => {
+            try {
+              const readmeRes = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${repo.name}/readme`);
+              if (readmeRes.ok) {
+                const readmeData = await readmeRes.json();
+                const decodedReadme = atob(readmeData.content.replace(/\n/g, ""));
+                // Basic cleanup: remove markdown headers and truncate
+                const cleanDescription = decodedReadme
+                  .replace(/#.*?\n/g, "") // Remove headers
+                  .replace(/\[.*?\]\(.*?\)/g, "") // Remove links
+                  .replace(/[*#`]/g, "") // Remove common markdown chars
+                  .trim()
+                  .slice(0, 120) + "...";
+                
+                return {
+                  ...repo,
+                  description: cleanDescription || repo.description || "No description available.",
+                };
+              }
+            } catch (e) {
+              console.error(`Failed to fetch readme for ${repo.name}`, e);
+            }
+            return {
+              ...repo,
+              description: repo.description || "No description available.",
+            };
+          })
         );
+        setRepos(reposWithReadmes);
       })
       .catch(() => setReposError("Could not load GitHub repos."))
       .finally(() => setReposLoading(false));
