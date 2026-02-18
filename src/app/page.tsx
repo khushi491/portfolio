@@ -38,7 +38,7 @@ export default function Home() {
         className="w-full max-w-7xl mx-auto py-16 md:py-24 px-4"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 text-center">
           <motion.div
             whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
             className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
@@ -112,7 +112,7 @@ export default function Home() {
         className="w-full max-w-7xl mx-auto py-16 md:py-24 px-4"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div
             whileHover={{ scale: 1.03, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
             className="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
