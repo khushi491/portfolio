@@ -39,15 +39,42 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">JavaScript</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Python</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">React</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Node.js</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">PostgreSQL</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Docker</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Kubernetes</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Cloud Platforms</motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">AI/ML</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >JavaScript</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >Python</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >React</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >Node.js</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >PostgreSQL</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >Docker</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >Kubernetes</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >Cloud Platforms</motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-4 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >AI/ML</motion.div>
         </div>
       </motion.section>
 
@@ -86,19 +113,31 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
+          <motion.div
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >
             <h3 className="text-2xl font-semibold">CareerBakers (AI Résumé Platform)</h3>
             <p className="text-gray-700 mt-2">AI-powered platform for optimizing resumes.</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
+          <motion.div
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >
             <h3 className="text-2xl font-semibold">ArcPay (Cross-Chain Payments)</h3>
             <p className="text-gray-700 mt-2">Facilitates transactions across different blockchain networks.</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
+          <motion.div
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >
             <h3 className="text-2xl font-semibold">VitalSense (AI Health Platform - Hackathon Winner)</h3>
             <p className="text-gray-700 mt-2">An AI-driven platform for health monitoring and insights, recognized as a hackathon winner.</p>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
+          <motion.div
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+            className="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-all duration-300"
+          >
             <h3 className="text-2xl font-semibold">NFT Marketplace</h3>
             <p className="text-gray-700 mt-2">A platform for buying, selling, and trading Non-Fungible Tokens.</p>
           </motion.div>

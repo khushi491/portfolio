@@ -20,7 +20,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="p-6 border rounded-lg shadow-md bg-background-light dark:bg-background-dark"
+      className="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg bg-background-light dark:bg-background-dark"
     >
       <h3 className="text-2xl font-semibold text-text-light dark:text-text-dark">{title}</h3>
       <p className="text-text-light/75 dark:text-text-dark/75">{company} | {dates}</p>

@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full bg-background-light dark:bg-background-dark shadow-md z-50 p-4"
+      className="fixed top-0 left-0 w-full bg-background-light dark:bg-background-dark border-b border-primary-light/20 dark:border-primary-dark/20 shadow-md z-50 p-4"
     >
       <div className="container mx-auto flex justify-between items-center">
         <Link href="#home" className="text-2xl font-bold text-text-light dark:text-text-dark">
@@ -49,8 +49,8 @@ const Navbar: React.FC = () => {
             <Link
               key={section.id}
               href={`#${section.id}`}
-              className={`text-text-light/75 dark:text-text-dark/75 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary-light dark:text-primary-dark' : ''}
+              className={`relative text-text-light/75 dark:text-text-dark/75 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300
+                ${activeSection === section.id ? 'font-semibold text-primary-light dark:text-primary-dark after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-primary-light dark:after:bg-primary-dark' : ''}
               `}
             >
               {section.name}
@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
               key={section.id}
               href={`#${section.id}`}
               className={`block px-4 py-2 text-text-light dark:text-text-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10
-                ${activeSection === section.id ? 'font-semibold bg-primary-light/10 dark:bg-primary-dark/10' : ''}
+                ${activeSection === section.id ? 'font-semibold bg-primary-light/10 dark:bg-primary-dark/10 border-l-2 border-primary-light dark:border-primary-dark' : ''}
               `}
               onClick={() => setIsOpen(false)}
             >

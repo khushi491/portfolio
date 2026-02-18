@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { FiMail, FiLinkedin, FiGithub } from 'react-icons/fi'; // Import icons
 
 const ContactSection: React.FC = () => {
   return (
@@ -17,14 +18,14 @@ const ContactSection: React.FC = () => {
         I'm always open to new opportunities and collaborations. Feel free to reach out!
       </p>
       <div className="flex justify-center space-x-6">
-        <Link href="mailto:your.email@example.com" className="text-primary-light dark:text-primary-dark hover:text-secondary-light dark:hover:text-secondary-dark transition-colors duration-300 text-lg font-semibold">
-          Email
+        <Link href="mailto:your.email@example.com" className="flex items-center space-x-2 text-primary-light dark:text-primary-dark hover:text-secondary-light dark:hover:text-secondary-dark transition-colors duration-300 text-lg font-semibold">
+          <FiMail /> <span>Email</span>
         </Link>
-        <Link href="https://linkedin.com/in/khushiparmar" target="_blank" rel="noopener noreferrer" className="text-primary-light dark:text-primary-dark hover:text-secondary-light dark:hover:text-secondary-dark transition-colors duration-300 text-lg font-semibold">
-          LinkedIn
+        <Link href="https://linkedin.com/in/khushiparmar" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary-light dark:text-primary-dark hover:text-secondary-light dark:hover:text-secondary-dark transition-colors duration-300 text-lg font-semibold">
+          <FiLinkedin /> <span>LinkedIn</span>
         </Link>
-        <Link href="https://github.com/khushi491" target="_blank" rel="noopener noreferrer" className="text-primary-light dark:text-primary-dark hover:text-secondary-light dark:hover:text-secondary-dark transition-colors duration-300 text-lg font-semibold">
-          GitHub
+        <Link href="https://github.com/khushi491" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary-light dark:text-primary-dark hover:text-secondary-light dark:hover:text-secondary-dark transition-colors duration-300 text-lg font-semibold">
+          <FiGithub /> <span>GitHub</span>
         </Link>
       </div>
     </motion.section>
