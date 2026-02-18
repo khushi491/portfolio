@@ -254,6 +254,77 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Skills Section */}
+      <motion.section
+        id="skills"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="w-full max-w-5xl mx-auto py-16 md:py-24 px-4 text-dark-text-secondary"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-dark-text-primary text-center mb-12">
+          Skills – Technical Matrix
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Programming */}
+          <div className="bg-dark-background-medium p-6 rounded-lg shadow-lg border border-dark-border">
+            <h3 className="text-2xl font-semibold text-primary mb-4">Programming</h3>
+            <ul className="list-disc list-inside space-y-2 text-dark-text-secondary">
+              <li>Python (Advanced)</li>
+              <li>JavaScript/TypeScript (Advanced)</li>
+              <li>Java (Intermediate)</li>
+              <li>Go (Beginner)</li>
+            </ul>
+          </div>
+
+          {/* Backend Engineering */}
+          <div className="bg-dark-background-medium p-6 rounded-lg shadow-lg border border-dark-border">
+            <h3 className="text-2xl font-semibold text-primary mb-4">Backend Engineering</h3>
+            <ul className="list-disc list-inside space-y-2 text-dark-text-secondary">
+              <li>Node.js (Express, NestJS)</li>
+              <li>Django, Flask (Python)</li>
+              <li>Spring Boot (Java)</li>
+              <li>RESTful APIs, gRPC</li>
+              <li>PostgreSQL, MongoDB, Redis</li>
+            </ul>
+          </div>
+
+          {/* Cloud & DevOps */}
+          <div className="bg-dark-background-medium p-6 rounded-lg shadow-lg border border-dark-border">
+            <h3 className="text-2xl font-semibold text-primary mb-4">Cloud & DevOps</h3>
+            <ul className="list-disc list-inside space-y-2 text-dark-text-secondary">
+              <li>Docker, Kubernetes</li>
+              <li>AWS (EC2, S3, Lambda, RDS, EKS)</li>
+              <li>Google Cloud Platform (GCP)</li>
+              <li>CI/CD (GitLab CI, GitHub Actions)</li>
+              <li>Terraform, Ansible</li>
+            </ul>
+          </div>
+
+          {/* AI Systems */}
+          <div className="bg-dark-background-medium p-6 rounded-lg shadow-lg border border-dark-border">
+            <h3 className="text-2xl font-semibold text-primary mb-4">AI Systems</h3>
+            <ul className="list-disc list-inside space-y-2 text-dark-text-secondary">
+              <li>Machine Learning (Scikit-learn, TensorFlow)</li>
+              <li>Deep Learning (PyTorch)</li>
+              <li>NLP, LLM Orchestration</li>
+              <li>Data Preprocessing, Feature Engineering</li>
+            </ul>
+          </div>
+
+          {/* Networking */}
+          <div className="bg-dark-background-medium p-6 rounded-lg shadow-lg border border-dark-border">
+            <h3 className="text-2xl font-semibold text-primary mb-4">Networking</h3>
+            <ul className="list-disc list-inside space-y-2 text-dark-text-secondary">
+              <li>TCP/IP, HTTP/S</li>
+              <li>Load Balancing, API Gateways</li>
+              <li>Service Mesh (Istio)</li>
+              <li>DNS Management</li>
+            </ul>
+          </div>
+        </div>
+      </motion.section>
+
     </main>
   );
 }
