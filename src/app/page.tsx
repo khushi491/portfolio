@@ -71,22 +71,22 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 border rounded-lg shadow-md">
+          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold">CareerBakers (AI Résumé Platform)</h3>
-            <p className="text-gray-700 mt-2">Description of project...</p>
-          </div>
-          <div className="p-6 border rounded-lg shadow-md">
+            <p className="text-gray-700 mt-2">AI-powered platform for optimizing resumes.</p>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold">ArcPay (Cross-Chain Payments)</h3>
-            <p className="text-gray-700 mt-2">Description of project...</p>
-          </div>
-          <div className="p-6 border rounded-lg shadow-md">
+            <p className="text-gray-700 mt-2">Facilitates transactions across different blockchain networks.</p>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold">VitalSense (AI Health Platform - Hackathon Winner)</h3>
-            <p className="text-gray-700 mt-2">Description of project...</p>
-          </div>
-          <div className="p-6 border rounded-lg shadow-md">
+            <p className="text-gray-700 mt-2">An AI-driven platform for health monitoring and insights, recognized as a hackathon winner.</p>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.03 }} className="p-6 border rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold">NFT Marketplace</h3>
-            <p className="text-gray-700 mt-2">Description of project...</p>
-          </div>
+            <p className="text-gray-700 mt-2">A platform for buying, selling, and trading Non-Fungible Tokens.</p>
+          </motion.div>
         </div>
       </motion.section>
     </main>
