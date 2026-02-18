@@ -85,6 +85,41 @@ export default function Home() {
 
         {/* Scroll Indicator - will be implemented later */}
       </motion.section>
+
+      {/* About Section */}
+      <motion.section
+        id="about"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="w-full max-w-5xl mx-auto py-16 md:py-24 px-4 text-dark-text-secondary"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-dark-text-primary text-center mb-12">
+          Systems-Focused Engineering
+        </h2>
+        <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
+          {/* Left Column: Technical Narrative */}
+          <div className="md:w-1/2 space-y-6">
+            <p className="text-lg leading-relaxed">
+              As a Production Systems Engineer, I specialize in building and maintaining robust backend infrastructure that powers high-traffic applications. My expertise extends beyond typical development to focus on the operational excellence and resilience of distributed systems.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-dark-text-secondary">
+              <li>Deep experience with <span className="text-primary font-semibold">Microservices Architecture</span>, designing decoupled and scalable services.</li>
+              <li>Proficient in optimizing <span className="text-primary font-semibold">Linux-based Production Environments</span> for stability and performance.</li>
+              <li>Adept at <span className="text-primary font-semibold">Debugging Distributed Systems</span> to quickly identify and resolve complex issues across multiple services.</li>
+              <li>Track record of <span className="text-primary font-semibold">Performance Optimization</span>, achieving up to 35% improvement in critical system metrics.</li>
+              <li>Expertise in <span className="text-primary font-semibold">Database Indexing & Caching Strategies</span> to ensure low-latency data access and high throughput.</li>
+              <li>Hands-on experience with <span className="text-primary font-semibold">Container Orchestration</span> using Docker and Kubernetes for seamless deployment and scaling.</li>
+            </ul>
+          </div>
+
+          {/* Right Column: Animated Architecture Diagram Placeholder */}
+          <div className="md:w-1/2 flex justify-center items-center h-64 border border-dark-border rounded-lg bg-dark-background-medium">
+            <p className="text-dark-text-secondary">Animated Architecture Diagram Coming Soon</p>
+          </div>
+        </div>
+      </motion.section>
+
     </main>
   );
 }

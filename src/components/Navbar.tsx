@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full bg-background-light dark:bg-background-dark border-b border-primary-light/20 dark:border-primary-dark/20 shadow-md z-50 p-4"
+      className="fixed top-0 left-0 w-full bg-dark-background-light dark:bg-dark-background-DEFAULT border-b border-dark-border shadow-md z-50 p-4"
     >
       <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
         <Link href="#home" className="text-2xl font-bold text-text-light dark:text-text-dark">
@@ -90,7 +90,7 @@ const Navbar: React.FC = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           transition={{ duration: 0.3 }}
-          className="md:hidden mt-4 bg-background-light dark:bg-background-dark rounded-md shadow-lg"
+          className="md:hidden mt-4 bg-dark-background-medium dark:bg-dark-background-DEFAULT rounded-md shadow-lg"
         >
           {sections.map((section) => (
             <Link

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.className} bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark`}>
+      <body className={`${inter.className} bg-white text-dark-text-primary dark:bg-dark-background-DEFAULT dark:text-dark-text-primary`}>
         <ThemeProvider attribute="class"> {/* Wrap with ThemeProvider */}
           <Navbar />
           <div className="relative pt-16">
