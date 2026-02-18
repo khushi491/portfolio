@@ -18,10 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.className} bg-white text-light-text-primary dark:bg-dark-background-DEFAULT dark:text-dark-text-primary`}>
+      <body className={`${inter.className} bg-white text-gray-900 dark:bg-dark-background-DEFAULT dark:text-gray-100 leading-relaxed`}>
         <ThemeProvider attribute="class"> {/* Wrap with ThemeProvider */}
           <Navbar />
-          <div className="relative pt-16">
+          <div className="relative pt-16 max-w-[980px] mx-auto px-6">
             {children}
           </div>
         </ThemeProvider>

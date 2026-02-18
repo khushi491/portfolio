@@ -24,8 +24,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.8 }}
-      whileHover={{ scale: 1.03, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }} // 3D tilt hover would be more complex
-      className="bg-dark-background-medium p-6 rounded-lg shadow-lg border border-dark-border relative group"
+      whileHover={{ scale: 1 }} // Keeping scale 1 as transform is handled by hover:-translate-y-1
+      className="bg-white dark:bg-dark-background-medium p-7 rounded-xl border border-gray-200 dark:border-gray-800 relative group transition-all duration-200 ease-in-out hover:border-gray-300 dark:hover:border-gray-600 hover:-translate-y-1"
     >
       <h3 className="text-2xl font-semibold text-text-primary mb-2">{title}</h3>
       {stack && <p className="text-sm text-text-secondary mb-3">Stack: {stack}</p>}

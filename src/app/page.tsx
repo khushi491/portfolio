@@ -27,13 +27,13 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="z-10 text-center max-w-5xl mx-auto"
+        className="z-10 text-center py-16 md:py-24" // Use padding instead of specific margin
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold text-dark-text-primary mb-4"
+          className="text-5xl font-bold text-dark-text-primary mb-4" // text-5xl for 48px, font-bold for 700
         >
           Khushi Parmar
         </motion.h1>
@@ -41,7 +41,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-3xl md:text-5xl font-semibold text-dark-text-primary mb-8"
+          className="text-xl font-medium text-gray-600 dark:text-gray-400 mb-8" // text-xl for 20px, font-medium for 500
         >
           Production Systems Engineer
         </motion.h2>
@@ -50,53 +50,11 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-lg md:text-xl text-dark-text-secondary max-w-3xl mx-auto mb-8"
+          className="mt-4 max-w-[650px] mx-auto text-gray-700 dark:text-gray-300 mb-8 text-lg" // mt-4 for 16px, max-w-[650px], text-gray-700 for light, text-gray-300 for dark
         >
-          Building scalable backend systems handling 50K+ daily requests with 99.8% uptime.
+          I build distributed systems that handle 50K+ daily requests with 99.8% uptime.
+          Specializing in Kubernetes, cloud infra, and AI orchestration.
         </motion.p>
-
-        {/* Micro Credibility Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          <span className="bg-dark-background-medium text-dark-text-secondary px-4 py-2 rounded-full text-sm">
-            3+ Years Experience
-          </span>
-          <span className="bg-dark-background-medium text-dark-text-secondary px-4 py-2 rounded-full text-sm">
-            Distributed Systems
-          </span>
-          <span className="bg-dark-background-medium text-dark-text-secondary px-4 py-2 rounded-full text-sm">
-            Docker & Kubernetes
-          </span>
-          <span className="bg-dark-background-medium text-dark-text-secondary px-4 py-2 rounded-full text-sm">
-            AI + LLM Orchestration
-          </span>
-        </motion.div>
-
-        {/* Typewriter rotating specialization titles */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-          className="text-xl md:text-2xl font-medium text-primary mb-16"
-        >
-          <TypewriterEffectSmooth words={words} />
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="w-8 h-12 border-2 border-primary rounded-full flex justify-center pt-2 animate-pulse-scroll">
-            <div className="w-1.5 h-3 bg-primary rounded-full"></div>
-          </div>
-        </motion.div>
       </motion.section>
 
       {/* About Section */}
@@ -112,7 +70,7 @@ export default function Home() {
         </h2>
         <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
           {/* Left Column: Technical Narrative */}
-          <div className="md:w-1/2 space-y-6">
+          <div className="md:w-full space-y-6">
             <p className="text-lg leading-relaxed">
               As a Production Systems Engineer, I specialize in building and maintaining robust backend infrastructure that powers high-traffic applications. My expertise extends beyond typical development to focus on the operational excellence and resilience of distributed systems.
             </p>
@@ -124,11 +82,6 @@ export default function Home() {
               <li>Expertise in <span className="text-primary font-semibold">Database Indexing & Caching Strategies</span> to ensure low-latency data access and high throughput.</li>
               <li>Hands-on experience with <span className="text-primary font-semibold">Container Orchestration</span> using Docker and Kubernetes for seamless deployment and scaling.</li>
             </ul>
-          </div>
-
-          {/* Right Column: Animated Architecture Diagram Placeholder */}
-          <div className="md:w-1/2 flex justify-center items-center h-64 border border-dark-border rounded-lg bg-dark-background-medium">
-            <p className="text-dark-text-secondary">Animated Architecture Diagram Coming Soon</p>
           </div>
         </div>
       </motion.section>
@@ -142,9 +95,9 @@ export default function Home() {
         className="w-full max-w-5xl mx-auto py-16 md:py-24 px-4 text-dark-text-secondary"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-dark-text-primary text-center mb-12">
-          Experience – Engineering Timeline
+          Experience
         </h2>
-        <div className="relative border-l-2 border-dark-border ml-4 pl-8 space-y-12">
+        <div className="space-y-6">
           {/* Webforest LLP */}
           <TimelineCard
             index={0}
@@ -153,8 +106,7 @@ export default function Home() {
             duration="Jan 2022 - Present"
             description={[
               "Operated 8+ production microservices, ensuring high availability and performance.",
-              "Managed systems handling 50K+ daily requests with 99.8% uptime.",
-              "Achieved a 35% performance boost through targeted optimizations.",
+              "Handled 50K+ daily requests • 99.8% uptime • +35% performance gain",
               "Implemented Docker and Kubernetes for seamless orchestration and scaling."
             ]}
           />
@@ -276,6 +228,13 @@ export default function Home() {
         <h2 className="text-4xl md:text-5xl font-bold text-dark-text-primary text-center mb-12">
           Skills – Technical Matrix
         </h2>
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {['Go', 'Kubernetes', 'Docker', 'AWS', 'Redis', 'PostgreSQL', 'LangChain', 'LLM Infra', 'React'].map((tech) => (
+            <span key={tech} className="inline-block px-3.5 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm text-gray-800 dark:text-gray-200">
+              {tech}
+            </span>
+          ))}
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Programming */}
           <div className="bg-dark-background-medium p-6 rounded-lg shadow-lg border border-dark-border">

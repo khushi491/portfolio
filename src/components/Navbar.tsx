@@ -6,42 +6,23 @@ import DarkModeToggle from './DarkModeToggle'; // Import DarkModeToggle
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
   const sections = [
-    { id: 'home', name: 'Home' },
-    { id: 'about', name: 'About' },
     { id: 'experience', name: 'Experience' },
     { id: 'projects', name: 'Projects' },
     { id: 'skills', name: 'Skills' },
-    { id: 'education', name: 'Education' },
+    { id: 'contact', name: 'Contact' },
   ];
-
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY + window.innerHeight / 2; // Offset for better detection
-    for (const section of sections) {
-      const element = document.getElementById(section.id);
-      if (element && scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
-        setActiveSection(section.id);
-        break;
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full bg-dark-background-light dark:bg-dark-background-DEFAULT border-b border-dark-border shadow-md z-50 p-4"
+      className="fixed top-0 left-0 w-full z-50 py-6 bg-dark-background-light dark:bg-dark-background-DEFAULT"
     >
-      <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
-        <Link href="#home" className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">
+      <div className="flex justify-between items-center max-w-[980px] mx-auto px-6">
+        <Link href="#hero" className="text-2xl font-bold text-gray-800 dark:text-gray-200">
           Khushi Parmar
         </Link>
 
@@ -51,9 +32,7 @@ const Navbar: React.FC = () => {
             <Link
               key={section.id}
               href={`#${section.id}`}
-              className={`relative text-light-text-secondary dark:text-dark-text-secondary hover:text-primary transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-primary' : ''}
-              `}
+              className="text-gray-600 dark:text-gray-400 font-medium hover:text-black dark:hover:text-white transition-colors duration-300"
             >
               {section.name}
             </Link>
@@ -62,10 +41,9 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Navigation Toggle */}
-        <div className="md:hidden flex items-center space-x-4"> {/* Group toggle and hamburger */}
-          <DarkModeToggle /> {/* Dark Mode Toggle for Mobile */}
+        <div className="md:hidden flex items-center">
           <button
-            className="text-light-text-secondary dark:text-dark-text-secondary focus:outline-none"
+            className="text-gray-600 dark:text-gray-400 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
@@ -98,9 +76,7 @@ const Navbar: React.FC = () => {
             <Link
               key={section.id}
               href={`#${section.id}`}
-              className={`block px-4 py-2 text-light-text-primary dark:text-dark-text-primary hover:bg-primary/10
-                ${activeSection === section.id ? 'font-semibold bg-primary/10 border-l-2 border-primary' : ''}
-              `}
+              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
               {section.name}
