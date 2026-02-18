@@ -28,7 +28,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden bg-neutral-50 text-neutral-900">
+    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden bg-gray-50 text-gray-900">
 
       <motion.section
         id="hero"
@@ -41,7 +41,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-6xl font-bold text-neutral-900 mb-4" // text-6xl for 60px
+          className="text-6xl font-bold text-gray-900 mb-4" // text-6xl for 60px
         >
           Khushi Parmar
         </motion.h1>
@@ -49,7 +49,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-3xl font-medium text-neutral-600 mb-8" // text-3xl for 30px
+          className="text-3xl font-medium text-gray-600 mb-8" // text-3xl for 30px
         >
           Full Stack Developer (AI + Production Systems)
         </motion.h2>
@@ -58,7 +58,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-4 max-w-[650px] mx-auto text-neutral-600 mb-8 text-lg" // mt-4 for 16px, max-w-[650px], text-gray-700 for light, text-gray-300 for dark
+          className="mt-4 max-w-[650px] mx-auto text-gray-600 mb-8 text-lg" // mt-4 for 16px, max-w-[650px], text-gray-700 for light, text-gray-300 for dark
         >
           I build distributed systems that handle 50K+ daily requests with 99.8% uptime.
           Specializing in Kubernetes, cloud infra, and AI orchestration.
@@ -71,9 +71,9 @@ export default function Home() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="flex flex-wrap justify-center mt-8 mb-12"
         >
-          <span className="inline-block px-3 py-1 rounded-full bg-neutral-200 text-neutral-600 text-sm mr-2 mb-2">50K+ req/day</span>
-          <span className="inline-block px-3 py-1 rounded-full bg-neutral-200 text-neutral-600 text-sm mr-2 mb-2">99.8% uptime</span>
-          <span className="inline-block px-3 py-1 rounded-full bg-neutral-200 text-neutral-600 text-sm mb-2">Antler Winner</span>
+          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mr-2 mb-2">50K+ req/day</span>
+          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mr-2 mb-2">99.8% uptime</span>
+          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mb-2">Antler Winner</span>
         </motion.div>
 
         {/* CTAs */}
@@ -97,7 +97,7 @@ export default function Home() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-neutral-200 shadow-sm text-base font-medium rounded-md text-neutral-900 bg-neutral-200 hover:bg-neutral-300 md:py-4 md:text-lg md:px-10 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-900 bg-gray-200 hover:bg-gray-300 md:py-4 md:text-lg md:px-10 transition-all duration-300"
           >
             GitHub
           </motion.a>
@@ -109,24 +109,24 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="w-full py-16 bg-neutral-100 border-t border-b border-neutral-200"
+        className="w-full py-16 bg-gray-100 border-t border-b border-gray-200"
       >
         <div className="max-w-[1100px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">50K+</span>
-            <span className="text-sm text-neutral-600">daily requests</span>
+            <span className="text-sm text-gray-600">daily requests</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">99.8%</span>
-            <span className="text-sm text-neutral-600">uptime</span>
+            <span className="text-sm text-gray-600">uptime</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">+35%</span>
-            <span className="text-sm text-neutral-600">performance gain</span>
+            <span className="text-sm text-gray-600">performance gain</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">15m</span>
-            <span className="text-sm text-neutral-600">deploy time (from 2h)</span>
+            <span className="text-sm text-gray-600">deploy time (from 2h)</span>
           </div>
         </div>
       </motion.section>
@@ -137,9 +137,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full py-28 px-4 text-neutral-600"
+        className="w-full py-28 px-4 text-gray-600"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
           Systems-Focused Engineering
         </h2>
         <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
@@ -148,7 +148,7 @@ export default function Home() {
             <p className="text-lg leading-relaxed">
               As a Production Systems Engineer, I specialize in building and maintaining robust backend infrastructure that powers high-traffic applications. My expertise extends beyond typical development to focus on the operational excellence and resilience of distributed systems.
             </p>
-            <ul className="list-disc list-inside space-y-2 text-neutral-600">
+            <ul className="list-disc list-inside space-y-2 text-gray-600">
               <li>Deep experience with <span className="text-primary font-semibold">Microservices Architecture</span>, designing decoupled and scalable services.</li>
               <li>Proficient in optimizing <span className="text-primary font-semibold">Linux-based Production Environments</span> for stability and performance.</li>
               <li>Adept at <span className="text-primary font-semibold">Debugging Distributed Systems</span> to quickly identify and resolve complex issues across multiple services.</li>
@@ -166,9 +166,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="w-full py-28 px-4 text-neutral-600"
+        className="w-full py-28 px-4 text-gray-600"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
           Experience
         </h2>
         <div className="space-y-6">
@@ -222,9 +222,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="w-full py-28 px-4 text-neutral-600"
+        className="w-full py-28 px-4 text-gray-600"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
           Advanced Projects – Technical Depth
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -301,25 +301,25 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="w-full py-28 px-4 text-neutral-600"
+        className="w-full py-28 px-4 text-gray-600"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
           Skills – Technical Matrix
         </h2>
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {['Go', 'Kubernetes', 'Docker', 'AWS', 'Redis', 'PostgreSQL', 'LangChain', 'LLM Infra', 'React'].map((tech) => (
-            <span key={tech} className="inline-block px-3.5 py-2 bg-neutral-200 rounded-full text-sm text-neutral-900">
+            <span key={tech} className="inline-block px-3.5 py-2 bg-gray-200 rounded-full text-sm text-gray-900">
               {tech}
             </span>
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillsData.map((category, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-neutral-200">
+            <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <h3 className="text-2xl font-semibold text-primary mb-4">{category.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <span key={skillIndex} className="inline-block px-3.5 py-2 bg-neutral-200 rounded-full text-sm text-neutral-900">
+                  <span key={skillIndex} className="inline-block px-3.5 py-2 bg-gray-200 rounded-full text-sm text-gray-900">
                     {skill}
                   </span>
                 ))}
@@ -335,9 +335,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.0 }}
-        className="w-full py-28 px-4 text-neutral-600"
+        className="w-full py-28 px-4 text-gray-600"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
           Education
         </h2>
         <div className="space-y-6 text-center text-lg">
@@ -347,8 +347,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-semibold text-neutral-900">Monroe University</h3>
-            <p className="text-neutral-600">MS Computer Science, GPA 3.9</p>
+            <h3 className="text-2xl font-semibold text-gray-900">Monroe University</h3>
+            <p className="text-gray-600">MS Computer Science, GPA 3.9</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -356,8 +356,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-semibold text-neutral-900">Maharaja Sayajirao University</h3>
-            <p className="text-neutral-600">Bachelor’s</p>
+            <h3 className="text-2xl font-semibold text-gray-900">Maharaja Sayajirao University</h3>
+            <p className="text-gray-600">Bachelor’s</p>
           </motion.div>
         </div>
       </motion.section>
@@ -368,9 +368,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="w-full py-28 px-4 text-neutral-600 text-center"
+        className="w-full py-28 px-4 text-gray-600 text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
           Let’s Build Resilient Systems.
         </h2>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
@@ -384,12 +384,12 @@ export default function Home() {
             Email
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/khushiparmar"
+            href="https://linkedin.com/in/khushieeparmar"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-800 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all duration-300"
           >
             <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             LinkedIn
@@ -400,7 +400,7 @@ export default function Home() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-800 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all duration-300"
           >
             <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77C19.4 3.92 19 2.5 19 2c0 0-1 0-3 1.5l-3 1.5c-1 0-4 1.5-4 1.5"></path></svg>
             GitHub

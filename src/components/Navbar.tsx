@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
       className="fixed top-0 left-0 w-full z-50 py-6 bg-white/80 backdrop-blur-lg"
     >
       <div className="flex justify-between items-center max-w-[1100px] mx-auto px-6">
-        <Link href="#hero" className="text-2xl font-bold text-neutral-900">
+        <Link href="#hero" className="text-2xl font-bold text-gray-900">
           Khushi Parmar
         </Link>
 
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
               key={section.id}
               href={`#${section.id}`}
               className={`relative font-medium transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-neutral-600 hover:text-neutral-900 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
+                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-gray-600 hover:text-gray-900 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
               `}
             >
               {section.name}
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden flex items-center">
           <button
-            className="text-neutral-600 focus:outline-none"
+            className="text-gray-600 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
               key={section.id}
               href={`#${section.id}`}
               className={`block px-4 py-2 relative transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-neutral-600 hover:bg-neutral-200 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
+                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-gray-600 hover:bg-gray-200 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
               `}
               onClick={() => setIsOpen(false)}
             >
