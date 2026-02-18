@@ -5,7 +5,7 @@ import TimelineCard from "@/components/TimelineCard";
 import ProjectCard from "@/components/ProjectCard";
 
 const GITHUB_USER = "khushi491";
-const GITHUB_REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=9&type=owner`;
+const GITHUB_REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100&type=owner`;
 
 type GitHubRepo = {
   name: string;
@@ -119,7 +119,7 @@ export default function Home() {
           className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
         >
           <motion.a
-            href="mailto:your.email@example.com"
+            href="mailto:khushieeparmar@gmail.com"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 md:py-4 md:text-lg md:px-10 transition-all duration-300 shadow-sm"
