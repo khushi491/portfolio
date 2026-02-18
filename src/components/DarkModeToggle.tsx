@@ -25,7 +25,7 @@ const DarkModeToggle: React.FC = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none"
+      className="p-2 rounded-full bg-background-light/50 dark:bg-background-dark/50 text-text-light dark:text-text-dark focus:outline-none"
     >
       {theme === 'dark' ? (
         <svg

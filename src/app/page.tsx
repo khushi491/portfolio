@@ -22,7 +22,7 @@ export default function Home() {
                     height={150}
                     className="rounded-full mb-6 border-4 border-purple-500 shadow-lg"
                   />        <h1 className="text-5xl font-bold mb-4">Khushi Parmar</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <p className="text-xl text-text-light dark:text-text-dark max-w-3xl mx-auto">
           Passionate Software Engineer with over 3 years of experience in designing, developing, and deploying scalable systems and robust microservices.
           My expertise lies in crafting efficient solutions using modern technologies like Python, Node.js, PostgreSQL, Docker, and Kubernetes, with a strong foundation in cloud infrastructure.
           I thrive on tackling complex challenges and contributing to innovative projects.
