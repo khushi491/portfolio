@@ -4,9 +4,10 @@ import ExperienceCard from '@/components/ExperienceCard';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 sm:p-16 lg:p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center">
       {/* Hero Section */}
       <motion.section
+        id="home"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -22,6 +23,7 @@ export default function Home() {
 
       {/* Skills Section */}
       <motion.section
+        id="skills"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -43,6 +45,7 @@ export default function Home() {
 
       {/* Experience Section */}
       <motion.section
+        id="experience"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
@@ -67,6 +70,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <motion.section
+        id="projects"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}

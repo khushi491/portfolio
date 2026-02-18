@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Using Inter as a common sans-serif font
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "next-themes"; // Import ThemeProvider
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100`}>
+        <ThemeProvider attribute="class"> {/* Wrap with ThemeProvider */}
+          <Navbar />
+          <div className="relative pt-16">
+            {children}
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
