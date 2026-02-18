@@ -15,13 +15,13 @@ export default function Home() {
         transition={{ duration: 0.8 }}
         className="text-center w-full max-w-7xl mx-auto py-16 md:py-24 px-4 flex flex-col items-center"
       >
-                  <Image
-                    src="/profile-placeholder.svg" // Placeholder image
-                    alt="Khushi Parmar"
-                    width={150}
-                    height={150}
-                    className="rounded-full mb-6 border-4 border-purple-500 shadow-lg"
-                  />        <h1 className="text-5xl font-bold mb-4">Khushi Parmar</h1>
+                            <Image
+                              src="/profile-placeholder.svg" // Placeholder image
+                              alt="Khushi Parmar"
+                              width={150}
+                              height={150}
+                              className="rounded-full mb-6 border-4 border-primary-light dark:border-primary-dark shadow-lg"
+                            />        <h1 className="text-5xl font-bold mb-4">Khushi Parmar</h1>
         <p className="text-xl text-text-light dark:text-text-dark max-w-3xl mx-auto">
           Passionate Software Engineer with over 3 years of experience in designing, developing, and deploying scalable systems and robust microservices.
           My expertise lies in crafting efficient solutions using modern technologies like Python, Node.js, PostgreSQL, Docker, and Kubernetes, with a strong foundation in cloud infrastructure.
