@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center p-8 sm:p-16 lg:p-24">
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center my-16"
+        className="text-center my-16 max-w-7xl"
       >
         <h1 className="text-5xl font-bold mb-4">Khushi Parmar</h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -24,7 +24,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="my-16 w-full max-w-4xl"
+        className="my-16 w-full max-w-7xl"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
@@ -45,7 +45,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="my-16 w-full max-w-4xl"
+        className="my-16 w-full max-w-7xl"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Experience</h2>
         <div className="space-y-8">
@@ -67,7 +67,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="my-16 w-full max-w-4xl"
+        className="my-16 w-full max-w-7xl"
       >
         <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
