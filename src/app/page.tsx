@@ -28,15 +28,15 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-          <div className="p-4 border rounded-lg shadow-md">JavaScript</div>
-          <div className="p-4 border rounded-lg shadow-md">Python</div>
-          <div className="p-4 border rounded-lg shadow-md">React</div>
-          <div className="p-4 border rounded-lg shadow-md">Node.js</div>
-          <div className="p-4 border rounded-lg shadow-md">PostgreSQL</div>
-          <div className="p-4 border rounded-lg shadow-md">Docker</div>
-          <div className="p-4 border rounded-lg shadow-md">Kubernetes</div>
-          <div className="p-4 border rounded-lg shadow-md">Cloud Platforms</div>
-          <div className="p-4 border rounded-lg shadow-md">AI/ML</div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">JavaScript</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Python</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">React</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Node.js</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">PostgreSQL</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Docker</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Kubernetes</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">Cloud Platforms</motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} className="p-4 border rounded-lg shadow-md">AI/ML</motion.div>
         </div>
       </motion.section>
 
