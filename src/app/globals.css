@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 0 132 255; /* RGB for #0A84FF */
+    --color-secondary: 61 220 132; /* RGB for #3DDC84 */
+  }
+}
+
+.animate-gradient-background {
+  background: radial-gradient(at 0% 0%, rgb(var(--color-primary) / 0.3) 0, transparent 50%),
+              radial-gradient(at 100% 0%, rgb(var(--color-secondary) / 0.3) 0, transparent 50%),
+              radial-gradient(at 50% 100%, rgb(var(--color-primary) / 0.3) 0, transparent 50%);
+  background-size: 200% 200%;
+  animation: moveGradient 15s ease infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes pulseScroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-scroll {
+  animation: pulseScroll 1.5s infinite;
+}

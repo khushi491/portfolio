@@ -19,7 +19,8 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden bg-dark-background-DEFAULT text-dark-text-primary">
-      {/* Background - will be implemented later */}
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 z-0 opacity-30 animate-gradient-background"></div>
 
       <motion.section
         id="hero"
@@ -85,7 +86,17 @@ export default function Home() {
           <TypewriterEffectSmooth words={words} />
         </motion.div>
 
-        {/* Scroll Indicator - will be implemented later */}
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        >
+          <div className="w-8 h-12 border-2 border-primary rounded-full flex justify-center pt-2 animate-pulse-scroll">
+            <div className="w-1.5 h-3 bg-primary rounded-full"></div>
+          </div>
+        </motion.div>
       </motion.section>
 
       {/* About Section */}
