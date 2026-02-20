@@ -20,6 +20,19 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## GitHub Repositories Data
+
+The open-source section of this portfolio is powered by data fetched from GitHub. 
+
+- **Script:** `scripts/fetch-github-repos.js` fetches public repositories and their READMEs.
+- **Data Store:** `src/data/github-repos.json`.
+- **Automation:** A GitHub Action (`.github/workflows/fetch-repos.yml`) runs every Sunday at midnight to keep the data fresh.
+
+To manually update the data, run:
+```bash
+npm run fetch-repos
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -1,12 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import TimelineCard from "@/components/TimelineCard";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal, { Project } from "@/components/ProjectModal";
+import githubRepos from "@/data/github-repos.json";
 
 const GITHUB_USER = "khushi491";
-const GITHUB_REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100&type=owner`;
 
 type GitHubRepo = {
   name: string;
@@ -16,9 +16,9 @@ type GitHubRepo = {
 };
 
 export default function Home() {
-  const [repos, setRepos] = useState<GitHubRepo[]>([]);
-  const [reposLoading, setReposLoading] = useState(true);
-  const [reposError, setReposError] = useState<string | null>(null);
+  const [repos] = useState<GitHubRepo[]>(githubRepos);
+  const [reposLoading] = useState(false);
+  const [reposError] = useState<string | null>(null);
   
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,48 +27,6 @@ export default function Home() {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
-
-  useEffect(() => {
-    fetch(GITHUB_REPOS_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch repos");
-        return res.json();
-      })
-      .then(async (data: { name: string; description: string | null; html_url: string; language: string | null }[]) => {
-        const reposWithReadmes = await Promise.all(
-          data.map(async (repo) => {
-            try {
-              const readmeRes = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${repo.name}/readme`);
-              if (readmeRes.ok) {
-                const readmeData = await readmeRes.json();
-                const decodedReadme = atob(readmeData.content.replace(/\n/g, ""));
-                // Basic cleanup: remove markdown headers and truncate
-                const cleanDescription = decodedReadme
-                  .replace(/#.*?\n/g, "") // Remove headers
-                  .replace(/\[.*?\]\(.*?\)/g, "") // Remove links
-                  .replace(/[*#`]/g, "") // Remove common markdown chars
-                  .trim()
-                  .slice(0, 120) + "...";
-                
-                return {
-                  ...repo,
-                  description: cleanDescription || repo.description || "No description available.",
-                };
-              }
-            } catch (e) {
-              console.error(`Failed to fetch readme for ${repo.name}`, e);
-            }
-            return {
-              ...repo,
-              description: repo.description || "No description available.",
-            };
-          })
-        );
-        setRepos(reposWithReadmes);
-      })
-      .catch(() => setReposError("Could not load GitHub repos."))
-      .finally(() => setReposLoading(false));
-  }, []);
 
   const skillsData = [
     {

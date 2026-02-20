@@ -1,0 +1,62 @@
+[
+  {
+    "name": "evalloop",
+    "description": "A self-improving agent that runs a task, evaluates its own output, patches its \"policy,\" and re-runs to improve the scor...",
+    "html_url": "https://github.com/khushi491/evalloop",
+    "language": "TypeScript"
+  },
+  {
+    "name": "portfolio",
+    "description": "This is a  project bootstrapped with .   First, run the development server:  bash npm run dev yarn dev pnpm dev bun dev ...",
+    "html_url": "https://github.com/khushi491/portfolio",
+    "language": "TypeScript"
+  },
+  {
+    "name": "resume-parser-ai",
+    "description": "This project is a resume parser AI system that extracts structured data from resume text.   - Parse resume text - Extrac...",
+    "html_url": "https://github.com/khushi491/resume-parser-ai",
+    "language": "Python"
+  },
+  {
+    "name": "vital",
+    "description": "No description available.",
+    "html_url": "https://github.com/khushi491/vital",
+    "language": null
+  },
+  {
+    "name": "aidramastudio",
+    "description": "drama-studio is an AI engine that auto-generates episodic fantasy/soap-opera stories, renders Instagram-ready carousel f...",
+    "html_url": "https://github.com/khushi491/aidramastudio",
+    "language": "TypeScript"
+  },
+  {
+    "name": "interview-buddy",
+    "description": "A comprehensive interview practice application powered by AI, built with Next.js, TypeScript, and Tailwind CSS.   - 🤖 A...",
+    "html_url": "https://github.com/khushi491/interview-buddy",
+    "language": "TypeScript"
+  },
+  {
+    "name": "Lung-cancer_prediction_model",
+    "description": "A modern web-based interface for lung cancer risk assessment using machine learning. This application provides a user-fr...",
+    "html_url": "https://github.com/khushi491/Lung-cancer_prediction_model",
+    "language": "Python"
+  },
+  {
+    "name": "oyster-swap",
+    "description": "Any content produced by Solana, or developer resources that Solana provides, are for educational and inspiration purpose...",
+    "html_url": "https://github.com/khushi491/oyster-swap",
+    "language": null
+  },
+  {
+    "name": "Chatter-task",
+    "description": "&nbsp; - To test knowledge of using sockets (socket.io) and events - Understanding of callbacks, hooks and function refe...",
+    "html_url": "https://github.com/khushi491/Chatter-task",
+    "language": "SCSS"
+  },
+  {
+    "name": "ResponsiveForm",
+    "description": "No description available.",
+    "html_url": "https://github.com/khushi491/ResponsiveForm",
+    "language": "HTML"
+  }
+]
