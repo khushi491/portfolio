@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import TimelineCard from "@/components/TimelineCard";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal, { Project } from "@/components/ProjectModal";
+import SkillTile from "@/components/SkillTile";
 import githubRepos from "@/data/github-repos.json";
 
 const GITHUB_USER = "khushi491";
@@ -416,22 +417,19 @@ export default function Home() {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
           Skills – Technical Matrix
         </h2>
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {['Go', 'Kubernetes', 'Docker', 'AWS', 'Redis', 'PostgreSQL', 'LangChain', 'LLM Infra', 'React'].map((tech) => (
-            <span key={tech} className="inline-block px-3.5 py-2 bg-gray-200 rounded-full text-sm text-gray-900">
-              {tech}
-            </span>
+        {/* Core stack — the logos worth leading with */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
+          {['Go', 'Kubernetes', 'Docker', 'AWS', 'Redis', 'PostgreSQL', 'LangChain', 'LLM Infra', 'React'].map((tech, index) => (
+            <SkillTile key={tech} skill={tech} size="lg" index={index} />
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="space-y-6">
           {skillsData.map((category, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <h3 className="text-2xl font-semibold text-primary mb-4">{category.category}</h3>
-              <div className="flex flex-wrap gap-2">
+            <div key={index} className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-200">
+              <h3 className="text-2xl font-semibold text-primary mb-6">{category.category}</h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <span key={skillIndex} className="inline-block px-3.5 py-2 bg-gray-200 rounded-full text-sm text-gray-900">
-                    {skill}
-                  </span>
+                  <SkillTile key={skillIndex} skill={skill} index={skillIndex} />
                 ))}
               </div>
             </div>
