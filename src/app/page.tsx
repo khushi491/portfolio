@@ -54,7 +54,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden bg-ink text-cream">
+    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-ink text-cream">
 
       <Hero />
 

@@ -1,41 +1,62 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
-@layer base {
-  :root {
-    --color-primary: 0 132 255; /* RGB for #0A84FF */
-    --color-secondary: 61 220 132; /* RGB for #3DDC84 */
+/*
+ * Paper grain. Applied as an overlay pseudo-element so it sits above the
+ * background but below content. Self-contained SVG turbulence — no asset
+ * request, and it tiles at any viewport size.
+ */
+.paper-grain {
+  position: relative;
+}
+
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/*
+ * Feathers the portrait so the artwork's own charcoal dissolves into the page
+ * instead of ending on a hard line. Stacked mobile-first: fade the top edge
+ * where it meets the copy, then switch to a left-edge fade once it moves
+ * beside the copy on desktop.
+ */
+.portrait-mask {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 25%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 25%);
+}
+
+@media (min-width: 768px) {
+  .portrait-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.55) 12%,
+      #000 30%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.55) 12%,
+      #000 30%
+    );
   }
 }
 
-.animate-gradient-background {
-  background: radial-gradient(at 0% 0%, rgb(var(--color-primary) / 0.3) 0, transparent 50%),
-              radial-gradient(at 100% 0%, rgb(var(--color-secondary) / 0.3) 0, transparent 50%),
-              radial-gradient(at 50% 100%, rgb(var(--color-primary) / 0.3) 0, transparent 50%);
-  background-size: 200% 200%;
-  animation: moveGradient 15s ease infinite;
-}
-
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
+/* Scroll-cue dot travelling down the mouse body. */
 @keyframes pulseScroll {
   0% {
     transform: translateY(0);
     opacity: 1;
   }
   50% {
-    transform: translateY(8px);
-    opacity: 0.5;
+    transform: translateY(6px);
+    opacity: 0.4;
   }
   100% {
     transform: translateY(0);
@@ -44,5 +65,11 @@
 }
 
 .animate-pulse-scroll {
-  animation: pulseScroll 1.5s infinite;
+  animation: pulseScroll 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-scroll {
+    animation: none;
+  }
 }

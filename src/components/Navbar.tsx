@@ -3,120 +3,116 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+const navLinks = [
+  { id: 'hero', name: 'Home' },
+  { id: 'about', name: 'About' },
+  { id: 'projects', name: 'Projects' },
+  { id: 'experience', name: 'Experience' },
+  { id: 'open-source', name: 'Open Source' },
+  { id: 'skills', name: 'Skills' },
+  { id: 'contact', name: 'Contact' },
+];
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero'); // Initialize with 'hero'
+  const [activeSection, setActiveSection] = useState('hero');
 
-  const sections = [
-    { id: 'hero', name: 'Home' }, // Only for scroll detection, not for rendering links
-    { id: 'about', name: 'About' },
-    { id: 'experience', name: 'Experience' },
-    { id: 'projects', name: 'Projects' },
-    { id: 'open-source', name: 'Open Source' },
-    { id: 'skills', name: 'Skills' },
-    { id: 'education', name: 'Education' },
-    { id: 'contact', name: 'Contact' },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      let current = 'hero';
 
-  const navLinks = [
-    { id: 'about', name: 'About' },
-    { id: 'experience', name: 'Experience' },
-    { id: 'projects', name: 'Projects' },
-    { id: 'open-source', name: 'Open Source' },
-    { id: 'skills', name: 'Skills' },
-    { id: 'education', name: 'Education' },
-    { id: 'contact', name: 'Contact' },
-  ];
-
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
-    let currentActiveSection = 'hero'; // Default to hero
-
-    for (const section of sections) {
-      const element = document.getElementById(section.id);
-      if (element) {
-        if (scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
-          currentActiveSection = section.id;
+      for (const section of navLinks) {
+        const element = document.getElementById(section.id);
+        if (
+          element &&
+          scrollPosition >= element.offsetTop &&
+          scrollPosition < element.offsetTop + element.offsetHeight
+        ) {
+          current = section.id;
           break;
         }
       }
-    }
-    setActiveSection(currentActiveSection);
-  };
+      setActiveSection(current);
+    };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once on mount to set initial active section
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const linkClass = (id: string) =>
+    `relative pb-1 text-sm tracking-wide transition-colors duration-200 ${
+      activeSection === id
+        ? 'text-primary'
+        : 'text-cream-muted hover:text-cream'
+    }`;
+
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full z-50 py-6 bg-ink/80 backdrop-blur-lg"
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed top-0 left-0 w-full z-50 py-5 bg-ink/85 backdrop-blur-md"
     >
-      <div className="flex justify-between items-center max-w-[1100px] mx-auto px-6">
-        <Link href="#hero" className="text-2xl font-bold text-cream">
-          Khushi Parmar
+      <div className="relative flex items-center justify-between max-w-[1240px] mx-auto px-6">
+        {/* Monogram */}
+        <Link href="#hero" aria-label="Khushi Parmar — home" className="shrink-0">
+          <span className="flex items-center justify-center w-11 h-11 rounded-full border border-gold/70 font-serif text-xl text-gold hover:border-gold transition-colors duration-200">
+            K
+          </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6 items-center"> {/* Added items-center for alignment */}
+        {/* Centered navigation */}
+        <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-9">
           {navLinks.map((section) => (
-            <Link
-              key={section.id}
-              href={`#${section.id}`}
-              className={`relative font-medium transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-cream-muted hover:text-cream after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
-              `}
-            >
+            <Link key={section.id} href={`#${section.id}`} className={linkClass(section.id)}>
               {section.name}
+              {activeSection === section.id && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="absolute left-0 -bottom-0.5 h-px w-full bg-primary"
+                />
+              )}
             </Link>
           ))}
         </div>
 
-        {/* Mobile Navigation Toggle */}
-        <div className="md:hidden flex items-center">
-          <button
-            className="text-cream-muted focus:outline-none"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-              ></path>
-            </svg>
-          </button>
-        </div>
+        {/* Mobile toggle */}
+        <button
+          className="lg:hidden text-cream-muted hover:text-cream transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 7h16M4 12h16M4 17h16'}
+            />
+          </svg>
+        </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile menu */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden mt-4 bg-ink-light rounded-md shadow-lg"
+          transition={{ duration: 0.25 }}
+          className="lg:hidden overflow-hidden mt-4 mx-6 rounded-sm border border-ink-edge bg-ink-light"
         >
           {navLinks.map((section) => (
             <Link
               key={section.id}
               href={`#${section.id}`}
-              className={`block px-4 py-2 relative transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-cream-muted hover:bg-ink-edge after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
-              `}
               onClick={() => setIsOpen(false)}
+              className={`block px-5 py-3 text-sm transition-colors duration-200 ${
+                activeSection === section.id
+                  ? 'text-primary'
+                  : 'text-cream-muted hover:text-cream hover:bg-ink-lighter'
+              }`}
             >
               {section.name}
             </Link>
