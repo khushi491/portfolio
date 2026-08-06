@@ -11,6 +11,15 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#0A84FF', // Vibrant Blue as the single accent color
+        accent: {
+          DEFAULT: '#EA5B26', // Hero orange
+          light: '#FF8A5B',
+          dark: '#B8390F',
+        },
+        ink: {
+          DEFAULT: '#17100E', // Hero panel base
+          light: '#241A16',
+        },
         gray: { // Using Tailwind's default 'gray' palette for custom shades
           50: '#FAFAFA', // Off-white for background
           200: '#E5E7EB', // Thin borders

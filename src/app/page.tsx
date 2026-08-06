@@ -5,6 +5,7 @@ import TimelineCard from "@/components/TimelineCard";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal, { Project } from "@/components/ProjectModal";
 import SkillTile from "@/components/SkillTile";
+import Hero from "@/components/Hero";
 import githubRepos from "@/data/github-repos.json";
 
 const GITHUB_USER = "khushi491";
@@ -55,79 +56,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden bg-gray-50 text-gray-900">
 
-      <motion.section
-        id="hero"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="z-10 text-center py-28" // Use padding instead of specific margin
-      >
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-6xl font-bold text-gray-900 mb-4" // text-6xl for 60px
-        >
-          Khushi Parmar
-        </motion.h1>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-3xl font-medium text-gray-600 mb-8" // text-3xl for 30px
-        >
-          Full Stack Developer (AI + Production Systems)
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-4 max-w-[650px] mx-auto text-gray-600 mb-8 text-lg" // mt-4 for 16px, max-w-[650px], text-gray-700 for light, text-gray-300 for dark
-        >
-          I build distributed systems that handle 50K+ daily requests with 99.8% uptime.
-          Specializing in Kubernetes, cloud infra, and AI orchestration.
-        </motion.p>
-
-        {/* Proof Chips */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="flex flex-wrap justify-center mt-8 mb-12"
-        >
-          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mr-2 mb-2">50K+ req/day</span>
-          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mr-2 mb-2">99.8% uptime</span>
-          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mb-2">Antler Winner</span>
-        </motion.div>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-          className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
-        >
-          <motion.a
-            href="mailto:khushieeparmar@gmail.com"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 md:py-4 md:text-lg md:px-10 transition-all duration-300 shadow-sm"
-          >
-            Email
-          </motion.a>
-          <motion.a
-            href="https://github.com/khushi491"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-900 bg-gray-200 hover:bg-gray-300 md:py-4 md:text-lg md:px-10 transition-all duration-300"
-          >
-            GitHub
-          </motion.a>
-        </motion.div>
-      </motion.section>
+      <Hero />
 
       {/* Proof Row Section */}
       <motion.section
