@@ -5,6 +5,7 @@ import ExperienceTimeline from "@/components/ExperienceTimeline";
 import Gallery from "@/components/Gallery";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import SkillsTicker from "@/components/SkillsTicker";
+import EducationSection from "@/components/EducationSection";
 import HeroIntro from "@/components/HeroIntro";
 import githubRepos from "@/data/github-repos.json";
 
@@ -137,38 +138,8 @@ export default function Home() {
       {/* Skills Section — kinetic-typography ticker */}
       <SkillsTicker />
 
-      {/* Education Section */}
-      <motion.section
-        id="education"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.0 }}
-        className="w-full py-28 px-4 text-cream-muted"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
-          Education
-        </h2>
-        <div className="space-y-6 text-center text-lg">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-semibold text-cream">Monroe University</h3>
-            <p className="text-cream-muted">MS Computer Science, GPA 3.9</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-2xl font-semibold text-cream">Maharaja Sayajirao University</h3>
-            <p className="text-cream-muted">Bachelor’s</p>
-          </motion.div>
-        </div>
-      </motion.section>
+      {/* Education Section — editorial split timeline */}
+      <EducationSection />
 
       {/* Contact Section */}
       <motion.section
