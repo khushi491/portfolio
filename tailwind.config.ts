@@ -10,22 +10,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0A84FF', // Vibrant Blue as the single accent color
-        accent: {
-          DEFAULT: '#EA5B26', // Hero orange
-          light: '#FF8A5B',
-          dark: '#B8390F',
+        // Single accent, used for every interactive and emphasis state.
+        primary: {
+          DEFAULT: '#EA5B26', // Accent for text, borders, icons
+          light: '#FF8A5B', // Bright accent on dark surfaces
+          deep: '#C4441A', // Solid button fill — white label clears 4.5:1 here, #EA5B26 does not
+          dark: '#B8390F', // Pressed / hover on solid fills
         },
+        // Warm near-black surfaces, darkest to lightest.
         ink: {
-          DEFAULT: '#17100E', // Hero panel base
-          light: '#241A16',
+          DEFAULT: '#17100E', // Page background
+          light: '#241A16', // Cards and panels
+          lighter: '#2E211C', // Chips, hovered cards
+          edge: '#3A2A24', // Hairline borders
         },
-        gray: { // Using Tailwind's default 'gray' palette for custom shades
-          50: '#FAFAFA', // Off-white for background
-          200: '#E5E7EB', // Thin borders
-          300: '#D1D5DB', // Hover borders
-          600: '#4B5563', // Secondary text
-          900: '#1F2937', // Primary text
+        // Warm off-whites for type, brightest to dimmest.
+        cream: {
+          DEFAULT: '#F5EFEC', // Headings
+          muted: '#C9BAB2', // Body copy
+          dim: '#8A7A72', // Labels and captions
         },
       },
       fontFamily: {

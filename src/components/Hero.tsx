@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
     <section id="hero" className="relative w-full py-10 md:py-16">
       <FloatingCubes />
 
-      <div className="relative rounded-[28px] bg-ink border border-accent/60 overflow-hidden">
+      <div className="relative rounded-[28px] bg-ink border border-primary/60 overflow-hidden">
         {/* Warm glow behind the illustration side */}
         <div
           aria-hidden="true"
@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
                 target={href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 aria-label={label}
-                className="text-white/50 hover:text-accent transition-colors duration-200"
+                className="text-white/50 hover:text-primary transition-colors duration-200"
               >
                 <Icon className="w-[18px] h-[18px]" />
               </a>
@@ -80,8 +80,8 @@ const Hero: React.FC = () => {
             </motion.p>
 
             <motion.div {...fadeUp(0.45)} className="mb-9 flex justify-center lg:justify-start">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/40 bg-accent/10 text-accent-light text-xs font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-primary-light text-xs font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true" />
                 Antler Hackathon Winner
               </span>
             </motion.div>
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
                 href="#projects"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-accent text-white font-medium hover:bg-accent-dark transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-primary-deep text-white font-medium hover:bg-primary-dark transition-colors duration-200"
               >
                 Learn more
               </motion.a>
@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
           <motion.a
             {...fadeUp(1.1)}
             href="#about"
-            className="hidden lg:flex flex-col items-center gap-2 absolute left-6 bottom-8 text-white/40 hover:text-accent transition-colors duration-200"
+            className="hidden lg:flex flex-col items-center gap-2 absolute left-6 bottom-8 text-white/40 hover:text-primary transition-colors duration-200"
           >
             <span
               className="text-[11px] tracking-widest uppercase"
