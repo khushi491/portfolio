@@ -10,29 +10,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Single accent, used for every interactive and emphasis state.
+        // Burnt orange accent — text, borders, active nav, emphasis.
         primary: {
-          DEFAULT: '#EA5B26', // Accent for text, borders, icons
-          light: '#FF8A5B', // Bright accent on dark surfaces
-          deep: '#C4441A', // Solid button fill — white label clears 4.5:1 here, #EA5B26 does not
-          dark: '#B8390F', // Pressed / hover on solid fills
+          DEFAULT: '#C96C3F',
+          light: '#E08B5F',
+          dark: '#A9542D', // Pressed / hover on solid fills
         },
-        // Warm near-black surfaces, darkest to lightest.
+        // Charcoal paper surfaces, darkest to lightest.
+        // DEFAULT matches the portrait artwork's own background exactly so the
+        // image composites into the page with no visible seam.
         ink: {
-          DEFAULT: '#17100E', // Page background
-          light: '#241A16', // Cards and panels
-          lighter: '#2E211C', // Chips, hovered cards
-          edge: '#3A2A24', // Hairline borders
+          DEFAULT: '#151513', // Page background
+          light: '#1C1C19', // Cards and panels
+          lighter: '#23231F', // Chips, hovered cards
+          edge: '#34342C', // Hairline borders
         },
-        // Warm off-whites for type, brightest to dimmest.
+        // Warm ivory type, brightest to dimmest.
         cream: {
-          DEFAULT: '#F5EFEC', // Headings
-          muted: '#C9BAB2', // Body copy
-          dim: '#8A7A72', // Labels and captions
+          DEFAULT: '#DED3B9', // Headings
+          muted: '#B5AE9C', // Body copy
+          dim: '#8A8474', // Labels and captions
         },
+        olive: {
+          DEFAULT: '#4A4A22', // Filled button
+          light: '#5C5C2B', // Its hover
+        },
+        sage: '#77775D',
+        gold: '#A58A50', // Hairline outlines on ghost buttons
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        serif: ['var(--font-cormorant)', 'Georgia', 'serif'],
         mono: ['"Fira Code"', 'monospace'], // Fira Code for monospace
       },
       backgroundImage: {

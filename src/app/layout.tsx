@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-cormorant",
+});
 
 export const metadata: Metadata = {
-  title: "Khushi Parmar - Software Engineer Portfolio",
-  description: "Khushi Parmar's professional portfolio showcasing her experience, skills, and projects as a Software Engineer.",
+  title: "Khushi Parmar - Full-Stack & AI Engineer",
+  description:
+    "Khushi Parmar builds scalable applications, intelligent systems, and reliable digital products.",
 };
 
 export default function RootLayout({
@@ -17,9 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-ink text-cream leading-relaxed`}>
+      <body
+        className={`${inter.variable} ${cormorant.variable} font-sans bg-ink text-cream leading-relaxed overflow-x-hidden`}
+      >
         <Navbar />
-        <div className="relative pt-16 max-w-[1100px] mx-auto px-6">
+        <div className="relative pt-20 max-w-[1100px] mx-auto px-6">
           {children}
         </div>
       </body>
