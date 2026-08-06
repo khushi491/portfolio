@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import TimelineCard from "@/components/TimelineCard";
-import ProjectCard from "@/components/ProjectCard";
-import ProjectModal, { Project } from "@/components/ProjectModal";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import Gallery from "@/components/Gallery";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import SkillsTicker from "@/components/SkillsTicker";
 import HeroIntro from "@/components/HeroIntro";
 import githubRepos from "@/data/github-repos.json";
@@ -21,14 +21,6 @@ export default function Home() {
   const [repos] = useState<GitHubRepo[]>(githubRepos);
   const [reposLoading] = useState(false);
   const [reposError] = useState<string | null>(null);
-  
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openProject = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
 
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-ink text-cream">
@@ -63,154 +55,13 @@ export default function Home() {
       </motion.section>
 
       {/* Experience Section */}
-      <motion.section
-        id="experience"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="w-full py-28 px-4 text-cream-muted"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
-          Experience
-        </h2>
-        <div className="space-y-6">
-          {/* Webforest LLP */}
-          <TimelineCard
-            index={0}
-            company="Webforest LLP"
-            role="Software Engineer"
-            duration="Jan 2022 - Present"
-            description={[
-              "Operated 8+ production microservices, ensuring high availability and performance.",
-              "Handled 50K+ daily requests • 99.8% uptime • +35% performance gain",
-              "Implemented Docker and Kubernetes for seamless orchestration and scaling."
-            ]}
-            techStack={['Microservices', 'Docker', 'Kubernetes']}
-          />
+      <ExperienceTimeline />
 
-          {/* Wedowebapps LLC */}
-          <TimelineCard
-            index={1}
-            company="Wedowebapps LLC"
-            role="Full Stack Developer"
-            duration="Aug 2020 - Dec 2021"
-            description={[
-              "Designed and developed applications using TypeScript and React architecture.",
-              "Implemented robust Redux state management systems.",
-              "Optimized data flow for enhanced user experience and application responsiveness."
-            ]}
-            techStack={['TypeScript', 'React', 'Redux']}
-          />
+      {/* Selected Work — horizontal scroll gallery */}
+      <Gallery />
 
-          {/* Techyhood Software Solution */}
-          <TimelineCard
-            index={2}
-            company="Techyhood Software Solution"
-            role="Backend Developer Intern"
-            duration="May 2020 - Jul 2020"
-            description={[
-              "Developed Java + Spring backend systems for various client projects.",
-              "Created and maintained REST APIs for efficient data exchange.",
-              "Contributed to SDLC workflows, focusing on agile methodologies."
-            ]}
-            techStack={['Java', 'Spring', 'REST APIs']}
-          />
-        </div>
-      </motion.section>
-
-      {/* Projects Section */}
-      <motion.section
-        id="projects"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="w-full py-28 px-4 text-cream-muted"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
-          Advanced Projects – Technical Depth
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {[
-            {
-              title: "CareerBakers",
-              oneLiner: "AI-powered resume & interview platform designed to optimize job search efficiency.",
-              highlights: [
-                "AI agent orchestration for personalized feedback and suggestions.",
-                "Sophisticated resume scoring system based on industry standards.",
-                "Integrated real-time interview simulation with speech-to-text analysis.",
-                "Automated job matching algorithm achieving 85% accuracy in role recommendations."
-              ],
-              techChips: ['Node.js', 'Python', 'Django', 'React', 'Redux', 'OpenAI API'],
-              longDescription: "CareerBakers is a comprehensive career advancement platform that leverages LLMs to provide users with deep insights into their professional standing. It features a sophisticated resume parser, an AI-driven interview coach, and a personalized career roadmap generator. The system orchestrates multiple AI agents to ensure feedback is both contextually relevant and technically accurate.",
-              demoLink: "https://career-bakers.com"
-            },
-            {
-              title: "ArcPay",
-              oneLiner: "Cross-chain distributed payment system enabling seamless transactions across different blockchain networks.",
-              highlights: [
-                "Developed a fault-tolerant backend ensuring high reliability and data integrity.",
-                "Implemented complex settlement workflow orchestration for secure transfers.",
-                "Optimized smart contract interactions reducing gas costs by 25%.",
-                "Built a real-time transaction monitoring dashboard with 200ms latency."
-              ],
-              techChips: ['Python', 'PostgreSQL', 'Docker', 'Kubernetes', 'Solidity', 'Web3.js'],
-              longDescription: "ArcPay solves the liquidity and interoperability challenges in the decentralized finance space. By implementing a custom settlement engine, it allows users to transfer value across chains with minimal friction. The infrastructure is built to be highly available, utilizing Kubernetes for auto-scaling and Prometheus for deep system monitoring.",
-              demoLink: "https://arcpay.io"
-            },
-            {
-              title: "VitalSense",
-              oneLiner: "Real-time AI health platform, recognized as an Antler Hackathon Winner, providing proactive health insights.",
-              highlights: [
-                "Built an AI Nurse Agent for intelligent health monitoring and alerts.",
-                "Designed containerized cloud deployment strategies for scalability.",
-                "Integrated wearable device data streams for continuous monitoring.",
-                "Developed predictive models for early detection of health anomalies."
-              ],
-              techChips: ['AI', 'Python', 'Cloud (AWS/GCP)', 'IoT', 'FastAPI', 'PyTorch'],
-              longDescription: "VitalSense was developed during the Antler Hackathon to bridge the gap between reactive and proactive healthcare. It uses a combination of IoT data and AI to provide users with a 'digital twin' of their health. The AI Nurse Agent can interpret symptoms, cross-reference medical databases, and provide immediate, data-backed advice.",
-              demoLink: "https://vitalsense.health"
-            },
-            {
-              title: "Devolution-World",
-              oneLiner: "High-performance backend for a gaming platform supporting 10,000+ concurrent users.",
-              highlights: [
-                "Implemented Redis caching strategies for ultra-low latency data access.",
-                "Achieved significant throughput optimization for a seamless user experience.",
-                "Designed a WebSocket-based real-time state synchronization engine.",
-                "Reduced server-side latency by 40% through efficient payload serialization."
-              ],
-              techChips: ['Node.js', 'Redis', 'Microservices', 'WebSockets', 'Go'],
-              longDescription: "Devolution-World is a high-stakes gaming environment where performance is paramount. The backend architecture focuses on minimizing the event loop lag and optimizing data flow between the game client and the server. It utilizes a distributed cache layer to handle frequent state updates without stressing the primary database.",
-              demoLink: "https://devolution.world"
-            },
-            {
-              title: "NFT Marketplace",
-              oneLiner: "A robust and scalable platform for buying, selling, and trading Non-Fungible Tokens.",
-              highlights: [
-                "Developed secure APIs for minting, listing, and transacting NFTs.",
-                "Implemented CI/CD automation for rapid and reliable deployment.",
-                "Built a decentralized metadata storage system using IPFS.",
-                "Integrated multiple wallet providers for a seamless user onboarding experience."
-              ],
-              techChips: ['Node.js', 'Solidity', 'Ethereum', 'IPFS', 'Hardhat', 'Ethers.js'],
-              longDescription: "This marketplace provides a secure and intuitive interface for the NFT ecosystem. It handles the complete lifecycle of a digital asset, from creation on the blockchain to secondary market sales. The focus was on building a trustless environment where security audits and automated testing were integral to the development process.",
-              demoLink: "https://nft-market.place"
-            }
-          ].map((project, idx) => (
-            <ProjectCard
-              key={idx}
-              {...project}
-              onClick={() => openProject(project)}
-            />
-          ))}
-        </div>
-      </motion.section>
-
-      <ProjectModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      {/* Projects Section — featured split layout */}
+      <FeaturedProjects />
 
       {/* Open Source / GitHub Projects Section */}
       <motion.section
