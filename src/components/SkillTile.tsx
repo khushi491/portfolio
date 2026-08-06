@@ -25,8 +25,8 @@ const SkillTile: React.FC<SkillTileProps> = ({ skill, size = "md", index = 0 }) 
       title={detail ? `${label} — ${detail}` : label}
       className={`flex flex-col items-center justify-start text-center rounded-2xl border transition-colors duration-200 ${
         isLg
-          ? "w-[104px] shrink-0 gap-3 px-3 py-5 bg-white border-gray-200 shadow-sm hover:border-primary/40"
-          : "gap-2.5 px-2 py-4 bg-gray-50 border-transparent hover:bg-white hover:border-gray-200"
+          ? "w-[104px] shrink-0 gap-3 px-3 py-5 bg-ink-light border-ink-edge shadow-sm hover:border-primary/40"
+          : "gap-2.5 px-2 py-4 bg-ink border-transparent hover:bg-ink-lighter hover:border-ink-edge"
       }`}
     >
       <Icon
@@ -36,14 +36,14 @@ const SkillTile: React.FC<SkillTileProps> = ({ skill, size = "md", index = 0 }) 
       />
       <span className="flex flex-col gap-0.5 min-w-0 w-full">
         <span
-          className={`font-semibold text-gray-900 leading-tight break-words ${
+          className={`font-semibold text-cream leading-tight break-words ${
             isLg ? "text-xs" : "text-[11px]"
           }`}
         >
           {label}
         </span>
         {detail && (
-          <span className="text-[10px] text-gray-500 leading-tight break-words">
+          <span className="text-[10px] text-cream-dim leading-tight break-words">
             {detail}
           </span>
         )}

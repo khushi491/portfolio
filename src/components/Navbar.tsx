@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import DarkModeToggle from './DarkModeToggle'; // Import DarkModeToggle
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,10 +55,10 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full z-50 py-6 bg-white/80 backdrop-blur-lg"
+      className="fixed top-0 left-0 w-full z-50 py-6 bg-ink/80 backdrop-blur-lg"
     >
       <div className="flex justify-between items-center max-w-[1100px] mx-auto px-6">
-        <Link href="#hero" className="text-2xl font-bold text-gray-900">
+        <Link href="#hero" className="text-2xl font-bold text-cream">
           Khushi Parmar
         </Link>
 
@@ -70,19 +69,18 @@ const Navbar: React.FC = () => {
               key={section.id}
               href={`#${section.id}`}
               className={`relative font-medium transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-gray-600 hover:text-gray-900 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
+                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-cream-muted hover:text-cream after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
               `}
             >
               {section.name}
             </Link>
           ))}
-          <DarkModeToggle /> {/* Dark Mode Toggle for Desktop */}
         </div>
 
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden flex items-center">
           <button
-            className="text-gray-600 focus:outline-none"
+            className="text-cream-muted focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
@@ -109,14 +107,14 @@ const Navbar: React.FC = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           transition={{ duration: 0.3 }}
-          className="md:hidden mt-4 bg-white rounded-md shadow-lg"
+          className="md:hidden mt-4 bg-ink-light rounded-md shadow-lg"
         >
           {navLinks.map((section) => (
             <Link
               key={section.id}
               href={`#${section.id}`}
               className={`block px-4 py-2 relative transition-colors duration-300
-                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-gray-600 hover:bg-gray-200 after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
+                ${activeSection === section.id ? 'font-semibold text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-100 after:origin-left after:transition-transform after:duration-300' : 'text-cream-muted hover:bg-ink-edge after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300'}
               `}
               onClick={() => setIsOpen(false)}
             >

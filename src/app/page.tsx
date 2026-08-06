@@ -5,6 +5,7 @@ import TimelineCard from "@/components/TimelineCard";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal, { Project } from "@/components/ProjectModal";
 import SkillTile from "@/components/SkillTile";
+import Hero from "@/components/Hero";
 import githubRepos from "@/data/github-repos.json";
 
 const GITHUB_USER = "khushi491";
@@ -53,105 +54,33 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden bg-gray-50 text-gray-900">
+    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden bg-ink text-cream">
 
-      <motion.section
-        id="hero"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="z-10 text-center py-28" // Use padding instead of specific margin
-      >
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-6xl font-bold text-gray-900 mb-4" // text-6xl for 60px
-        >
-          Khushi Parmar
-        </motion.h1>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-3xl font-medium text-gray-600 mb-8" // text-3xl for 30px
-        >
-          Full Stack Developer (AI + Production Systems)
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-4 max-w-[650px] mx-auto text-gray-600 mb-8 text-lg" // mt-4 for 16px, max-w-[650px], text-gray-700 for light, text-gray-300 for dark
-        >
-          I build distributed systems that handle 50K+ daily requests with 99.8% uptime.
-          Specializing in Kubernetes, cloud infra, and AI orchestration.
-        </motion.p>
-
-        {/* Proof Chips */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="flex flex-wrap justify-center mt-8 mb-12"
-        >
-          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mr-2 mb-2">50K+ req/day</span>
-          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mr-2 mb-2">99.8% uptime</span>
-          <span className="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 text-sm mb-2">Antler Winner</span>
-        </motion.div>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-          className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
-        >
-          <motion.a
-            href="mailto:khushieeparmar@gmail.com"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 md:py-4 md:text-lg md:px-10 transition-all duration-300 shadow-sm"
-          >
-            Email
-          </motion.a>
-          <motion.a
-            href="https://github.com/khushi491"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-900 bg-gray-200 hover:bg-gray-300 md:py-4 md:text-lg md:px-10 transition-all duration-300"
-          >
-            GitHub
-          </motion.a>
-        </motion.div>
-      </motion.section>
+      <Hero />
 
       {/* Proof Row Section */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="w-full py-16 bg-gray-100 border-t border-b border-gray-200"
+        className="w-full py-16 bg-ink-light/60 border-t border-b border-ink-edge"
       >
         <div className="max-w-[1100px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">50K+</span>
-            <span className="text-sm text-gray-600">daily requests</span>
+            <span className="text-sm text-cream-muted">daily requests</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">99.8%</span>
-            <span className="text-sm text-gray-600">uptime</span>
+            <span className="text-sm text-cream-muted">uptime</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">+35%</span>
-            <span className="text-sm text-gray-600">performance gain</span>
+            <span className="text-sm text-cream-muted">performance gain</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">15m</span>
-            <span className="text-sm text-gray-600">deploy time (from 2h)</span>
+            <span className="text-sm text-cream-muted">deploy time (from 2h)</span>
           </div>
         </div>
       </motion.section>
@@ -162,9 +91,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full py-28 px-4 text-gray-600"
+        className="w-full py-28 px-4 text-cream-muted"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
           Systems-Focused Engineering
         </h2>
         <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
@@ -173,7 +102,7 @@ export default function Home() {
             <p className="text-lg leading-relaxed">
               As a Production Systems Engineer, I specialize in building and maintaining robust backend infrastructure that powers high-traffic applications. My expertise extends beyond typical development to focus on the operational excellence and resilience of distributed systems.
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
+            <ul className="list-disc list-inside space-y-2 text-cream-muted">
               <li>Deep experience with <span className="text-primary font-semibold">Microservices Architecture</span>, designing decoupled and scalable services.</li>
               <li>Proficient in optimizing <span className="text-primary font-semibold">Linux-based Production Environments</span> for stability and performance.</li>
               <li>Adept at <span className="text-primary font-semibold">Debugging Distributed Systems</span> to quickly identify and resolve complex issues across multiple services.</li>
@@ -191,9 +120,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="w-full py-28 px-4 text-gray-600"
+        className="w-full py-28 px-4 text-cream-muted"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
           Experience
         </h2>
         <div className="space-y-6">
@@ -247,9 +176,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="w-full py-28 px-4 text-gray-600"
+        className="w-full py-28 px-4 text-cream-muted"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
           Advanced Projects – Technical Depth
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -341,22 +270,22 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full py-28 px-4 text-gray-600 bg-gray-100 border-t border-gray-200"
+        className="w-full py-28 px-4 text-cream-muted bg-ink-light/60 border-t border-ink-edge"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-4">
           Open Source
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-xl mx-auto">
+        <p className="text-center text-cream-muted mb-12 max-w-xl mx-auto">
           Projects I’ve built and shared on GitHub. Clone, star, or contribute.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
           {reposLoading && (
             <div className="col-span-full flex justify-center py-12">
-              <div className="animate-pulse text-gray-500">Loading repos from GitHub…</div>
+              <div className="animate-pulse text-cream-dim">Loading repos from GitHub…</div>
             </div>
           )}
           {reposError && (
-            <div className="col-span-full text-center py-8 text-gray-600">
+            <div className="col-span-full text-center py-8 text-cream-muted">
               {reposError}{" "}
               <a href={`https://github.com/${GITHUB_USER}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 View on GitHub
@@ -374,17 +303,17 @@ export default function Home() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -4 }}
-              className="block bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/50 shadow-sm transition-all duration-200 group"
+              className="block bg-ink-light p-6 rounded-xl border border-ink-edge hover:border-primary/50 shadow-sm transition-all duration-200 group"
             >
               <div className="flex items-start justify-between gap-2 mb-2">
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
+                <h3 className="text-lg font-semibold text-cream group-hover:text-primary transition-colors truncate">
                   {repo.name}
                 </h3>
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-primary shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <svg className="w-5 h-5 text-cream-dim group-hover:text-primary shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
               </div>
-              <p className="text-gray-600 text-sm mb-3 line-clamp-2">{repo.description}</p>
+              <p className="text-cream-muted text-sm mb-3 line-clamp-2">{repo.description}</p>
               {repo.language && (
-                <span className="inline-block px-2.5 py-1 rounded-md bg-gray-200 text-gray-700 text-xs font-medium">
+                <span className="inline-block px-2.5 py-1 rounded-md bg-ink-lighter text-cream-muted text-xs font-medium">
                   {repo.language}
                 </span>
               )}
@@ -398,7 +327,7 @@ export default function Home() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-900 text-white font-medium hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-ink-lighter text-white font-medium hover:bg-ink-edge transition-colors"
           >
             View all on GitHub
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -412,9 +341,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="w-full py-28 px-4 text-gray-600"
+        className="w-full py-28 px-4 text-cream-muted"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
           Skills – Technical Matrix
         </h2>
         {/* Core stack — the logos worth leading with */}
@@ -425,7 +354,7 @@ export default function Home() {
         </div>
         <div className="space-y-6">
           {skillsData.map((category, index) => (
-            <div key={index} className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-200">
+            <div key={index} className="bg-ink-light p-6 md:p-8 rounded-2xl shadow-sm border border-ink-edge">
               <h3 className="text-2xl font-semibold text-primary mb-6">{category.category}</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
                 {category.skills.map((skill, skillIndex) => (
@@ -443,9 +372,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.0 }}
-        className="w-full py-28 px-4 text-gray-600"
+        className="w-full py-28 px-4 text-cream-muted"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
           Education
         </h2>
         <div className="space-y-6 text-center text-lg">
@@ -455,8 +384,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-semibold text-gray-900">Monroe University</h3>
-            <p className="text-gray-600">MS Computer Science, GPA 3.9</p>
+            <h3 className="text-2xl font-semibold text-cream">Monroe University</h3>
+            <p className="text-cream-muted">MS Computer Science, GPA 3.9</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -464,8 +393,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-semibold text-gray-900">Maharaja Sayajirao University</h3>
-            <p className="text-gray-600">Bachelor’s</p>
+            <h3 className="text-2xl font-semibold text-cream">Maharaja Sayajirao University</h3>
+            <p className="text-cream-muted">Bachelor’s</p>
           </motion.div>
         </div>
       </motion.section>
@@ -476,17 +405,17 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="w-full py-28 px-4 text-gray-600 text-center"
+        className="w-full py-28 px-4 text-cream-muted text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-cream mb-12">
           Let’s Build Resilient Systems.
         </h2>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
           <motion.a
-            href="mailto:your.email@example.com"
-            whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
+            href="mailto:khushieeparmar@gmail.com"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-800 bg-primary hover:bg-primary md:py-4 md:text-lg md:px-10 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 shadow-sm text-base font-medium rounded-md text-white bg-primary-deep hover:bg-primary-dark md:py-4 md:text-lg md:px-10 transition-all duration-300"
           >
             <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13V3"></path></svg>
             Email
@@ -495,9 +424,9 @@ export default function Home() {
             href="https://linkedin.com/in/khushieeparmar"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 border border-ink-edge shadow-sm text-base font-medium rounded-md text-cream bg-ink-light hover:bg-ink-lighter md:py-4 md:text-lg md:px-10 transition-all duration-300"
           >
             <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             LinkedIn
@@ -506,9 +435,9 @@ export default function Home() {
             href="https://github.com/khushi491"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05, background: "linear-gradient(to right, var(--primary), var(--secondary))" }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-3 border border-gray-200 shadow-sm text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 border border-ink-edge shadow-sm text-base font-medium rounded-md text-cream bg-ink-light hover:bg-ink-lighter md:py-4 md:text-lg md:px-10 transition-all duration-300"
           >
             <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77C19.4 3.92 19 2.5 19 2c0 0-1 0-3 1.5l-3 1.5c-1 0-4 1.5-4 1.5"></path></svg>
             GitHub
