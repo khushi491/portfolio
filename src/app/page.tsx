@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import TimelineCard from "@/components/TimelineCard";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal, { Project } from "@/components/ProjectModal";
-import SkillTile from "@/components/SkillTile";
-import Hero from "@/components/Hero";
+import SkillsTicker from "@/components/SkillsTicker";
+import HeroIntro from "@/components/HeroIntro";
 import githubRepos from "@/data/github-repos.json";
 
 const GITHUB_USER = "khushi491";
@@ -30,33 +30,10 @@ export default function Home() {
     setIsModalOpen(true);
   };
 
-  const skillsData = [
-    {
-      category: "Frontend",
-      skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Redux"]
-    },
-    {
-      category: "Backend",
-      skills: ["Node.js (Express, NestJS)", "Python (Django, Flask)", "Java (Spring Boot)", "RESTful APIs", "gRPC", "Microservices"]
-    },
-    {
-      category: "Cloud/DevOps",
-      skills: ["Docker", "Kubernetes", "AWS (EC2, S3, Lambda, RDS, EKS)", "GCP", "CI/CD (GitLab CI, GitHub Actions)", "Terraform", "Ansible", "Linux"]
-    },
-    {
-      category: "AI/ML",
-      skills: ["Machine Learning", "Deep Learning (PyTorch)", "NLP", "LLM Orchestration", "Data Preprocessing"]
-    },
-    {
-      category: "Databases",
-      skills: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"]
-    }
-  ];
-
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-ink text-cream">
 
-      <Hero />
+      <HeroIntro />
 
       {/* Proof Row Section */}
       <motion.section
@@ -81,35 +58,6 @@ export default function Home() {
           <div className="flex flex-col items-center">
             <span className="text-4xl md:text-5xl font-bold text-primary">15m</span>
             <span className="text-sm text-cream-muted">deploy time (from 2h)</span>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* About Section */}
-      <motion.section
-        id="about"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full py-28 px-4 text-cream-muted"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
-          Systems-Focused Engineering
-        </h2>
-        <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
-          {/* Left Column: Technical Narrative */}
-          <div className="md:w-full space-y-6 max-w-[700px] mx-auto">
-            <p className="text-lg leading-relaxed">
-              As a Production Systems Engineer, I specialize in building and maintaining robust backend infrastructure that powers high-traffic applications. My expertise extends beyond typical development to focus on the operational excellence and resilience of distributed systems.
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-cream-muted">
-              <li>Deep experience with <span className="text-primary font-semibold">Microservices Architecture</span>, designing decoupled and scalable services.</li>
-              <li>Proficient in optimizing <span className="text-primary font-semibold">Linux-based Production Environments</span> for stability and performance.</li>
-              <li>Adept at <span className="text-primary font-semibold">Debugging Distributed Systems</span> to quickly identify and resolve complex issues across multiple services.</li>
-              <li>Track record of <span className="text-primary font-semibold">Performance Optimization</span>, achieving up to 35% improvement in critical system metrics.</li>
-              <li>Expertise in <span className="text-primary font-semibold">Database Indexing & Caching Strategies</span> to ensure low-latency data access and high throughput.</li>
-              <li>Hands-on experience with <span className="text-primary font-semibold">Container Orchestration</span> using Docker and Kubernetes for seamless deployment and scaling.</li>
-            </ul>
           </div>
         </div>
       </motion.section>
@@ -335,36 +283,8 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Skills Section */}
-      <motion.section
-        id="skills"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className="w-full py-28 px-4 text-cream-muted"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-cream text-center mb-12">
-          Skills – Technical Matrix
-        </h2>
-        {/* Core stack — the logos worth leading with */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
-          {['Go', 'Kubernetes', 'Docker', 'AWS', 'Redis', 'PostgreSQL', 'LangChain', 'LLM Infra', 'React'].map((tech, index) => (
-            <SkillTile key={tech} skill={tech} size="lg" index={index} />
-          ))}
-        </div>
-        <div className="space-y-6">
-          {skillsData.map((category, index) => (
-            <div key={index} className="bg-ink-light p-6 md:p-8 rounded-2xl shadow-sm border border-ink-edge">
-              <h3 className="text-2xl font-semibold text-primary mb-6">{category.category}</h3>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <SkillTile key={skillIndex} skill={skill} index={skillIndex} />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
+      {/* Skills Section — kinetic-typography ticker */}
+      <SkillsTicker />
 
       {/* Education Section */}
       <motion.section

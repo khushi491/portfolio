@@ -48,6 +48,78 @@
   }
 }
 
+/*
+ * Reusable edge feathering for artwork whose own background must dissolve into
+ * the page. Same purpose as .portrait-mask, but selectable per breakpoint.
+ */
+.mask-fade-top {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
+}
+
+@media (min-width: 768px) {
+  .md\:mask-fade-left {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 10%,
+      #000 26%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 10%,
+      #000 26%
+    );
+  }
+}
+
+/*
+ * The shared hero/intro portrait carries its own dark paper background. Feather
+ * its left and bottom edges so that rectangle dissolves into the section on
+ * BOTH the charcoal hero and the olive Personal-Introduction background, rather
+ * than reading as a hard-edged box. Right edge bleeds off-screen; the top rises
+ * off-screen as the portrait travels up into Section 2, so neither needs a fade.
+ */
+.portrait-frame {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%),
+    linear-gradient(to bottom, #000 76%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #000 16%),
+    linear-gradient(to bottom, #000 76%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/*
+ * Scroll-driven logo marquee for the Skills section. Each line loops a row of
+ * brand logos; neighbouring lines drift in opposite directions off one scroll.
+ */
+.skill-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.skill-logo svg {
+  width: clamp(2.5rem, 5vw, 3.75rem);
+  height: auto;
+  /* Icons carry their own brand colour via inline style; steady it on hover. */
+  transition: transform 0.2s ease;
+}
+
+.skill-logo:hover svg {
+  transform: translateY(-3px);
+}
+
+.skill-name {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a8474; /* cream-dim */
+  white-space: nowrap;
+}
+
 /* Scroll-cue dot travelling down the mouse body. */
 @keyframes pulseScroll {
   0% {

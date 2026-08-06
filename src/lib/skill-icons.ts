@@ -26,6 +26,19 @@ import {
   SiRedis,
   SiElasticsearch,
   SiGo,
+  SiGraphql,
+  SiMysql,
+  SiAngular,
+  SiVuedotjs,
+  SiExpress,
+  SiFlask,
+  SiFastapi,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiJira,
+  SiBitbucket,
+  SiApachemaven,
 } from "react-icons/si";
 import {
   FaJava,
@@ -36,6 +49,8 @@ import {
   FaComments,
   FaMicrochip,
   FaBrain,
+  FaCloud,
+  FaDatabase,
 } from "react-icons/fa6";
 
 export type SkillIcon = {
@@ -137,6 +152,36 @@ const EXACT: Record<string, SkillIcon> = {
   java: { Icon: FaJava, color: "#E76F00", label: "Java" },
   python: { Icon: SiPython, color: "#5A9FD4", label: "Python" },
   "node.js": { Icon: SiNodedotjs, color: "#6CC24A", label: "Node.js" },
+
+  // Added from résumé — frameworks & libraries
+  express: { Icon: SiExpress, color: "#D6CFC2", label: "Express" },
+  "express.js": { Icon: SiExpress, color: "#D6CFC2", label: "Express" },
+  angular: { Icon: SiAngular, color: "#E23A5E", label: "Angular" },
+  vue: { Icon: SiVuedotjs, color: "#4FC08D", label: "Vue" },
+  "vue.js": { Icon: SiVuedotjs, color: "#4FC08D", label: "Vue" },
+  "react native": { Icon: SiReact, color: "#61DAFB", label: "React Native" },
+  flask: { Icon: SiFlask, color: "#E8E0DA", label: "Flask" },
+  fastapi: { Icon: SiFastapi, color: "#0BA88E", label: "FastAPI" },
+
+  // Added from résumé — databases & query
+  graphql: { Icon: SiGraphql, color: "#EA4AAA", label: "GraphQL" },
+  mysql: { Icon: SiMysql, color: "#5B9BD5", label: "MySQL" },
+  sql: { Icon: SiMysql, color: "#5B9BD5", label: "SQL" },
+  "vector database": { Icon: FaDatabase, color: "#4FD1C5", label: "Vector DB" },
+
+  // Added from résumé — cloud & tooling
+  azure: { Icon: FaCloud, color: "#3AA0E3", label: "Azure" },
+  firebase: { Icon: SiFirebase, color: "#FFCA28", label: "Firebase" },
+  git: { Icon: SiGit, color: "#F05032", label: "Git" },
+  github: { Icon: SiGithub, color: "#E8E0DA", label: "GitHub" },
+  jira: { Icon: SiJira, color: "#4C9AFF", label: "Jira" },
+  bitbucket: { Icon: SiBitbucket, color: "#4C9AFF", label: "Bitbucket" },
+  maven: { Icon: SiApachemaven, color: "#D8434F", label: "Maven" },
+
+  // Added from résumé — AI & systems
+  "prompt engineering": { Icon: FaBrain, color: "#C084FC", label: "Prompt Engineering" },
+  "vector search": { Icon: FaDatabase, color: "#4FD1C5", label: "Vector Search" },
+  "natural language processing": { Icon: FaComments, color: "#38BDF8", label: "NLP" },
 };
 
 /**
@@ -177,6 +222,26 @@ const FUZZY: Array<[string, SkillIcon]> = [
   ["redis", EXACT["redis"]],
   ["elastic", EXACT["elasticsearch"]],
   ["microservice", EXACT["microservices"]],
+  ["react native", EXACT["react native"]],
+  ["express", EXACT["express"]],
+  ["angular", EXACT["angular"]],
+  ["vue", EXACT["vue"]],
+  ["flask", EXACT["flask"]],
+  ["fastapi", EXACT["fastapi"]],
+  ["graphql", EXACT["graphql"]],
+  ["mysql", EXACT["mysql"]],
+  ["vector", EXACT["vector database"]],
+  ["azure", EXACT["azure"]],
+  ["firebase", EXACT["firebase"]],
+  ["github", EXACT["github"]],
+  ["git", EXACT["git"]],
+  ["jira", EXACT["jira"]],
+  ["bitbucket", EXACT["bitbucket"]],
+  ["maven", EXACT["maven"]],
+  ["prompt", EXACT["prompt engineering"]],
+  ["natural language", EXACT["natural language processing"]],
+  ["nlp", EXACT["nlp"]],
+  ["sql", EXACT["mysql"]],
   ["api", EXACT["restful apis"]],
   ["grpc", EXACT["grpc"]],
 ];
