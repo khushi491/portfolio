@@ -1,157 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import type { IconType } from "react-icons";
-import {
-  LuArrowRight,
-  LuArrowUpRight,
-  LuFileStack,
-  LuShieldCheck,
-  LuPuzzle,
-  LuCalendarDays,
-  LuScale,
-} from "react-icons/lu";
-import ProjectModal, { Project } from "./ProjectModal";
+import { LuArrowRight, LuArrowUpRight } from "react-icons/lu";
+import { PROJECTS } from "@/data/projects";
 
-type Item = Project & {
-  subtitle: string;
-  /** One-line teaser shown on the row. */
-  blurb: string;
-  /** Short tag pills for the row (full stack lives in the modal). */
-  tags: string[];
-  Icon?: IconType;
-  /** Monogram used when no icon is set. */
-  mono?: string;
-};
-
-// First three are the featured set; the rest reveal under "View All Projects".
-const PROJECTS: Item[] = [
-  {
-    title: "CareerBakers",
-    subtitle: "AI-Powered Career Companion",
-    blurb: "AI-powered platform for resumes, interviews, and job applications.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "AI"],
-    mono: "CB",
-    oneLiner: "AI-Powered Career Companion",
-    longDescription:
-      "CareerBakers combines AI, automation, and modern web technologies to simplify the entire job search process. From ATS-friendly resumes to AI mock interviews and auto job applications — everything in one place.",
-    highlights: [
-      "AI Resume Builder with ATS optimization",
-      "AI Interview Copilot with real-time feedback",
-      "Auto Apply to jobs across platforms",
-      "Smart job matching based on skills & goals",
-    ],
-    techChips: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-      "PostgreSQL",
-      "Prisma",
-      "OpenAI API",
-      "Stripe",
-      "Resend",
-      "Clerk",
-      "Vercel",
-    ],
-  },
-  {
-    title: "DocMCP",
-    subtitle: "Logistics Document Assistant",
-    blurb: "AI assistant for logistics documents and smart Q&A.",
-    tags: ["FastAPI", "LangChain", "ChromaDB", "LLM"],
-    Icon: LuFileStack,
-    oneLiner: "Logistics Document Assistant",
-    longDescription:
-      "An AI assistant for logistics documents that answers questions over your files with retrieval-augmented generation, turning dense paperwork into smart, conversational Q&A.",
-    highlights: [
-      "Document ingestion and vector indexing with ChromaDB",
-      "Retrieval-augmented Q&A over logistics documents",
-      "LangChain orchestration with LLM reasoning",
-      "FastAPI backend for fast, typed endpoints",
-    ],
-    techChips: ["FastAPI", "LangChain", "ChromaDB", "LLM", "Python"],
-  },
-  {
-    title: "AuthAI",
-    subtitle: "x402 + Gmail + Coinbase CDP",
-    blurb: "Secure agent authentication with crypto payments.",
-    tags: ["Next.js", "Node.js", "Base", "x402"],
-    Icon: LuShieldCheck,
-    oneLiner: "x402 + Gmail + Coinbase CDP",
-    longDescription:
-      "Secure agent authentication that brings together x402, Gmail, and Coinbase CDP — letting agents authenticate and settle crypto payments on Base.",
-    highlights: [
-      "Agent authentication via the x402 protocol",
-      "Gmail-based identity flows",
-      "Coinbase CDP integration for crypto payments",
-      "Settlement deployed on Base",
-    ],
-    techChips: ["Next.js", "Node.js", "Base", "x402", "Coinbase CDP"],
-  },
-  {
-    title: "Auto Apply Extension",
-    subtitle: "Job Application Automation",
-    blurb: "Chrome extension that auto-fills and submits job applications.",
-    tags: ["React", "TypeScript", "Chrome API"],
-    Icon: LuPuzzle,
-    oneLiner: "Job Application Automation",
-    longDescription:
-      "A Chrome extension that automates job applications — auto-filling forms from a saved profile and submitting across platforms in one click.",
-    highlights: [
-      "One-click auto-apply across job platforms",
-      "Form auto-fill from a saved profile",
-      "Built on the Chrome Extension APIs",
-    ],
-    techChips: ["React", "TypeScript", "Chrome API"],
-  },
-  {
-    title: "Workforce Scheduler",
-    subtitle: "Event Staffing & Scheduling",
-    blurb: "Staffing and shift scheduling for events.",
-    tags: ["Next.js", "MySQL", "Tailwind CSS"],
-    Icon: LuCalendarDays,
-    oneLiner: "Event Staffing & Scheduling",
-    longDescription:
-      "An event staffing and scheduling platform for planning shifts and assigning staff across events, backed by a relational data model.",
-    highlights: [
-      "Shift planning and staff assignment",
-      "Event-based scheduling",
-      "Next.js app with MySQL persistence",
-    ],
-    techChips: ["Next.js", "MySQL", "Tailwind CSS"],
-  },
-  {
-    title: "JusticeStack",
-    subtitle: "Parking OCR + RAG System",
-    blurb: "OCR + RAG system for parking citations.",
-    tags: ["Python", "OCR", "PostgreSQL", "RAG"],
-    Icon: LuScale,
-    oneLiner: "Parking OCR + RAG System",
-    longDescription:
-      "A parking OCR and RAG system that extracts structured data from citations and answers questions over the corpus with retrieval-augmented generation.",
-    highlights: [
-      "OCR extraction from parking documents",
-      "Retrieval-augmented Q&A over the corpus",
-      "PostgreSQL-backed data store",
-    ],
-    techChips: ["Python", "OCR", "PostgreSQL", "RAG"],
-  },
-];
+const FEATURED = PROJECTS.slice(0, 3);
 
 const FeaturedProjects: React.FC = () => {
-  const [showAll, setShowAll] = useState(false);
-  const [selected, setSelected] = useState<Project | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const open = (item: Project) => {
-    setSelected(item);
-    setIsOpen(true);
-  };
-
-  const visible = showAll ? PROJECTS : PROJECTS.slice(0, 3);
-
   return (
     <section id="projects" className="w-full py-28 px-4 text-cream-muted">
       <div className="mx-auto grid max-w-[1200px] gap-12 md:grid-cols-[34%_1fr] lg:gap-16">
@@ -176,31 +32,30 @@ const FeaturedProjects: React.FC = () => {
             development, AI systems, and automation.
           </p>
 
-          <button
-            type="button"
-            onClick={() => setShowAll((v) => !v)}
+          <Link
+            href="/projects"
             className="group mt-8 inline-flex items-center gap-3 rounded-sm border border-gold/70 px-6 py-3.5 text-cream transition-colors duration-200 hover:border-gold hover:bg-gold/10"
           >
-            {showAll ? "Show Less" : "View All Projects"}
+            View All Projects
             <LuArrowUpRight
               aria-hidden="true"
               className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
-          </button>
+          </Link>
         </div>
 
-        {/* Project rows */}
+        {/* Featured project rows */}
         <ul className="flex flex-col gap-4">
-          {visible.map((item, i) => (
+          {FEATURED.map((item, i) => (
             <motion.li
               key={item.title}
               initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: Math.min(i, 3) * 0.05 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
             >
-              <button
-                type="button"
-                onClick={() => open(item)}
+              <Link
+                href={`/projects/${item.slug}`}
                 className="group flex w-full flex-col gap-4 rounded-2xl border border-ink-edge bg-ink-light p-5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 md:flex-row md:items-center md:gap-6 md:p-6"
               >
                 {/* Icon + identity */}
@@ -245,17 +100,11 @@ const FeaturedProjects: React.FC = () => {
                     className="h-5 w-5 shrink-0 text-cream-dim transition-all duration-200 group-hover:translate-x-1 group-hover:text-primary"
                   />
                 </div>
-              </button>
+              </Link>
             </motion.li>
           ))}
         </ul>
       </div>
-
-      <ProjectModal
-        project={selected}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
     </section>
   );
 };

@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
     >
       <div className="relative flex items-center justify-between max-w-[1240px] mx-auto px-6">
         {/* Monogram */}
-        <Link href="#hero" aria-label="Khushi Parmar — home" className="shrink-0">
+        <Link href="/" aria-label="Khushi Parmar — home" className="shrink-0">
           <span className="flex items-center justify-center w-11 h-11 rounded-full border border-gold/70 font-serif text-xl text-gold hover:border-gold transition-colors duration-200">
             K
           </span>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
         {/* Centered navigation */}
         <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-9">
           {navLinks.map((section) => (
-            <Link key={section.id} href={`#${section.id}`} className={linkClass(section.id)}>
+            <Link key={section.id} href={`/#${section.id}`} className={linkClass(section.id)}>
               {section.name}
               {activeSection === section.id && (
                 <motion.span
@@ -106,7 +106,7 @@ const Navbar: React.FC = () => {
           {navLinks.map((section) => (
             <Link
               key={section.id}
-              href={`#${section.id}`}
+              href={`/#${section.id}`}
               onClick={() => setIsOpen(false)}
               className={`block px-5 py-3 text-sm transition-colors duration-200 ${
                 activeSection === section.id
