@@ -30,7 +30,7 @@ export default function Home() {
   const [reposError] = useState<string | null>(null);
 
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-ink text-cream">
+    <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 text-cream">
 
       <HeroIntro />
 

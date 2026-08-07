@@ -27,6 +27,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${cormorant.variable} font-sans bg-ink text-cream leading-relaxed overflow-x-hidden`}
       >
+        {/* Designed backdrop: charcoal base, soft olive/copper depth glows,
+            and fine paper grain — sits behind all content. */}
+        <div aria-hidden="true" className="site-bg" />
         <Navbar />
         <div className="relative pt-20 max-w-[1100px] mx-auto px-6">
           {children}
