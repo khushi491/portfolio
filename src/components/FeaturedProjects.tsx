@@ -3,14 +3,16 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { LuArrowRight, LuArrowUpRight } from "react-icons/lu";
+import { SectionNumber, CopperLine } from "./decor";
 import { PROJECTS } from "@/data/projects";
 
 const FEATURED = PROJECTS.slice(0, 3);
 
 const FeaturedProjects: React.FC = () => {
   return (
-    <section id="projects" className="w-full py-28 px-4 text-cream-muted">
-      <div className="mx-auto grid max-w-[1200px] gap-12 md:grid-cols-[34%_1fr] lg:gap-16">
+    <section id="projects" className="relative w-full overflow-hidden py-28 px-4 text-cream-muted">
+      <SectionNumber className="right-0 top-10 translate-x-[12%]">03</SectionNumber>
+      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-12 md:grid-cols-[34%_1fr] lg:gap-16">
         {/* Editorial column */}
         <div className="md:sticky md:top-28 md:self-start">
           <div className="mb-6 flex items-center gap-3">
@@ -27,7 +29,9 @@ const FeaturedProjects: React.FC = () => {
             <span className="text-primary">Projects</span>
           </h2>
 
-          <p className="mt-6 max-w-sm leading-relaxed text-cream-muted">
+          <CopperLine length="4rem" className="mt-7" />
+
+          <p className="mt-7 max-w-sm leading-relaxed text-cream-muted">
             A collection of products I&rsquo;ve built across full-stack
             development, AI systems, and automation.
           </p>

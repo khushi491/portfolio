@@ -2,11 +2,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
-import Gallery from "@/components/Gallery";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import SkillsTicker from "@/components/SkillsTicker";
 import EducationSection from "@/components/EducationSection";
 import HeroIntro from "@/components/HeroIntro";
+import {
+  PaperDivider,
+  PaperRibbon,
+  MonogramSeal,
+  PaperCoil,
+  PALETTE,
+} from "@/components/decor";
 import githubRepos from "@/data/github-repos.json";
 
 const GITHUB_USER = "khushi491";
@@ -27,6 +33,11 @@ export default function Home() {
     <main className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-ink text-cream">
 
       <HeroIntro />
+
+      {/* Curved layered-paper transition out of the introduction */}
+      <div className="w-screen mx-[calc(50%-50vw)]">
+        <PaperDivider variant={1} />
+      </div>
 
       {/* Proof Row Section */}
       <motion.section
@@ -57,9 +68,6 @@ export default function Home() {
 
       {/* Experience Section */}
       <ExperienceTimeline />
-
-      {/* Selected Work — horizontal scroll gallery */}
-      <Gallery />
 
       {/* Projects Section — featured split layout */}
       <FeaturedProjects />
@@ -138,6 +146,11 @@ export default function Home() {
       {/* Skills Section — kinetic-typography ticker */}
       <SkillsTicker />
 
+      {/* Curved layered-paper transition into education */}
+      <div className="w-screen mx-[calc(50%-50vw)]">
+        <PaperDivider variant={2} flip />
+      </div>
+
       {/* Education Section — editorial split timeline */}
       <EducationSection />
 
@@ -147,12 +160,26 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="w-full py-28 px-4 text-cream-muted text-center"
+        className="relative w-full overflow-hidden py-28 px-4 text-cream-muted text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-cream mb-12">
-          Let’s Build Resilient Systems.
-        </h2>
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
+        {/* Large paper ribbon guiding the eye toward the call to action */}
+        <PaperRibbon
+          className="absolute inset-x-0 bottom-0 h-[60%] opacity-80"
+          flip
+        />
+
+        <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center">
+          <MonogramSeal
+            initials="KP"
+            size={72}
+            ringText="KHUSHI PARMAR · LET'S BUILD · "
+            className="mb-8"
+          />
+          <h2 className="text-3xl md:text-4xl font-bold text-cream mb-12">
+            Let’s Build Resilient Systems.
+          </h2>
+        </div>
+        <div className="relative z-10 flex flex-col sm:flex-row justify-center gap-6">
           <motion.a
             href="mailto:khushieeparmar@gmail.com"
             whileHover={{ scale: 1.05 }}
@@ -186,6 +213,12 @@ export default function Home() {
           </motion.a>
         </div>
       </motion.section>
+
+      {/* Footer — a single small paper coil */}
+      <footer className="flex w-full flex-col items-center gap-3 border-t border-ink-edge py-10 text-cream-dim">
+        <PaperCoil size={24} color={PALETTE.gold} />
+        <p className="text-xs">© 2026 Khushi Parmar — Full-Stack &amp; AI Engineer</p>
+      </footer>
 
     </main>
   );

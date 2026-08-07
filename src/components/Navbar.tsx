@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { MonogramSeal } from './decor';
 
 const navLinks = [
   { id: 'hero', name: 'Home' },
@@ -57,10 +58,12 @@ const Navbar: React.FC = () => {
     >
       <div className="relative flex items-center justify-between max-w-[1240px] mx-auto px-6">
         {/* Monogram */}
-        <Link href="/" aria-label="Khushi Parmar — home" className="shrink-0">
-          <span className="flex items-center justify-center w-11 h-11 rounded-full border border-gold/70 font-serif text-xl text-gold hover:border-gold transition-colors duration-200">
-            K
-          </span>
+        <Link
+          href="/"
+          aria-label="Khushi Parmar — home"
+          className="shrink-0 opacity-90 transition-opacity duration-200 hover:opacity-100"
+        >
+          <MonogramSeal initials="K" size={44} />
         </Link>
 
         {/* Centered navigation */}

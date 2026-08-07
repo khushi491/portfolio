@@ -12,6 +12,7 @@ import {
   LuClock,
 } from "react-icons/lu";
 import QuillDecor from "./QuillDecor";
+import { PaperCoil, MonogramSeal, PALETTE } from "./decor";
 
 type Meta = { Icon: IconType; text: string };
 
@@ -124,6 +125,10 @@ const EducationSection: React.FC = () => {
               </p>
             </div>
           </div>
+
+          <div className="mt-10 opacity-80">
+            <MonogramSeal initials="KP" size={64} />
+          </div>
         </div>
 
         {/* Timeline + stats */}
@@ -149,12 +154,11 @@ const EducationSection: React.FC = () => {
                   {entry.period}
                 </div>
 
-                {/* Node */}
-                <div className="relative flex justify-center pt-7">
-                  <span
-                    aria-hidden="true"
-                    className="h-3 w-3 rounded-full bg-primary ring-4 ring-ink"
-                  />
+                {/* Rolled-paper node */}
+                <div className="relative z-10 flex justify-center pt-7">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink ring-4 ring-ink">
+                    <PaperCoil size={16} color={PALETTE.copper} />
+                  </span>
                 </div>
 
                 {/* Card */}
