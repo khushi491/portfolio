@@ -7,6 +7,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import Ticker from "./Ticker";
+import { CopperLine } from "./decor";
 import { getSkillIcon } from "@/lib/skill-icons";
 
 // Full résumé stack across six lines, drifting in alternating directions.
@@ -57,6 +58,7 @@ const SkillsTicker: React.FC = () => {
         <p className="mt-3 text-cream-muted">
           The stack I build production systems with.
         </p>
+        <CopperLine length="4rem" className="mx-auto mt-6" />
       </div>
 
       {/* The marquee is decorative (looped logos); expose a real list to AT. */}

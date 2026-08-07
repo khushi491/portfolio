@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { PaperCoil, PALETTE } from "./decor";
 
 type Role = {
   company: string;
@@ -92,13 +93,12 @@ const ExperienceTimeline: React.FC = () => {
               transition={{ duration: 0.6, delay: Math.min(i * 0.06, 0.3) }}
               className="group relative pb-14 pl-8 last:pb-0 md:pl-12"
             >
-              {/* Node on the spine */}
+              {/* Rolled-paper node on the spine */}
               <span
                 aria-hidden="true"
-                className="absolute left-0 top-1.5 flex h-3.5 w-3.5 -translate-x-1/2 items-center justify-center"
+                className="absolute left-0 top-0.5 z-10 flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-full bg-ink ring-4 ring-ink transition-transform duration-200 group-hover:scale-110"
               >
-                <span className="h-3.5 w-3.5 rounded-full bg-primary/20 ring-4 ring-ink" />
-                <span className="absolute h-1.5 w-1.5 rounded-full bg-primary transition-transform duration-200 group-hover:scale-[1.6]" />
+                <PaperCoil size={16} color={PALETTE.copper} />
               </span>
 
               <span className="font-mono text-xs uppercase tracking-[0.15em] text-primary">

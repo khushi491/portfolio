@@ -9,6 +9,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { LuCodeXml, LuBrain, LuCloudUpload } from "react-icons/lu";
+import { Spotlight, PaperRibbon, SectionNumber, PALETTE } from "./decor";
 import portrait from "../../public/khushi-portrait.jpg";
 
 /**
@@ -114,6 +115,21 @@ const HeroIntro: React.FC = () => {
         />
         {/* Self-contained paper grain */}
         <div aria-hidden="true" className="paper-grain absolute inset-0" />
+
+        {/* Soft spotlight pooling behind the portrait */}
+        <Spotlight
+          color={PALETTE.softOlive}
+          intensity={0.2}
+          size="55% 65%"
+          position="72% 42%"
+          className="absolute inset-0"
+        />
+
+        {/* One paper ribbon threading the left negative space */}
+        <PaperRibbon
+          parallax={parallaxOn ? 36 : 0}
+          className="absolute -left-10 bottom-6 hidden h-[45%] w-[34%] md:block"
+        />
 
         {/* Abstract paper curves — slowest layer */}
         <motion.div
@@ -269,9 +285,12 @@ const HeroIntro: React.FC = () => {
       {/* ── Panel 2 — Personal Introduction (second viewport) ── */}
       <div
         id="about"
-        className="relative z-10 h-svh flex items-center"
+        className="relative z-10 h-svh flex items-center overflow-hidden"
       >
-        <div className="w-full mx-auto max-w-[1240px] px-6">
+        <SectionNumber className="top-1/2 right-2 -translate-y-1/2 translate-x-[8%] md:right-16">
+          02
+        </SectionNumber>
+        <div className="relative z-10 w-full mx-auto max-w-[1240px] px-6">
           <div className="md:w-[54%]">
             <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-7">
               <span className="font-serif text-primary text-xl">02</span>

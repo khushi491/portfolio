@@ -11,6 +11,7 @@ import {
   LuShieldCheck,
 } from "react-icons/lu";
 import QuillDecor from "./QuillDecor";
+import { BrowserFrame } from "./decor";
 import { getProject, type ProjectItem } from "@/data/projects";
 
 const fade = (delay: number) => ({
@@ -27,41 +28,30 @@ function HeroDevice({ project }: { project: ProjectItem }) {
         <QuillDecor />
       </div>
 
-      <motion.div
-        {...fade(0.15)}
-        className="paper-grain relative z-10 flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-2xl border border-ink-edge shadow-2xl"
-        style={{
-          backgroundImage: `linear-gradient(150deg, ${project.tint[0]}, ${project.tint[1]})`,
-        }}
-      >
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 560px"
-            className="object-cover"
-          />
-        ) : (
-          <>
-            <span aria-hidden="true" className="absolute left-4 top-4 flex gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-cream/20" />
-              <span className="h-2.5 w-2.5 rounded-full bg-cream/15" />
-              <span className="h-2.5 w-2.5 rounded-full bg-cream/10" />
+      <BrowserFrame url={`${project.slug}.app`} className="paper-grain relative z-10">
+        <div
+          className="relative flex aspect-[16/10] w-full items-center justify-center"
+          style={{
+            backgroundImage: `linear-gradient(150deg, ${project.tint[0]}, ${project.tint[1]})`,
+          }}
+        >
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="object-cover"
+            />
+          ) : project.Icon ? (
+            <project.Icon className="h-16 w-16 text-cream/25" aria-hidden="true" />
+          ) : (
+            <span className="font-serif text-7xl font-semibold text-cream/25">
+              {project.mono}
             </span>
-            {project.Icon ? (
-              <project.Icon
-                className="h-16 w-16 text-cream/25"
-                aria-hidden="true"
-              />
-            ) : (
-              <span className="font-serif text-7xl font-semibold text-cream/25">
-                {project.mono}
-              </span>
-            )}
-          </>
-        )}
-      </motion.div>
+          )}
+        </div>
+      </BrowserFrame>
     </div>
   );
 }
