@@ -1,110 +1,154 @@
 @import "tailwindcss";
-@config "../../tailwind.config.ts";
 
-/*
- * Paper grain. Applied as an overlay pseudo-element so it sits above the
- * background but below content. Self-contained SVG turbulence — no asset
- * request, and it tiles at any viewport size.
- */
-.paper-grain {
-  position: relative;
+:root {
+  --bg: #0e0f0e;
+  --bg-subtle: #141412;
+  --surface: rgba(22, 22, 19, 0.72);
+  --ink: #e4d8be;
+  --ink-soft: #a39b88;
+  --line: #2c2c24;
+  --accent: #c56a42;
+  --accent-soft: rgba(184, 97, 62, 0.16);
+  --olive: #66684b;
+  --gold: #c4a56a;
+  --ring: #c56a42;
 }
 
-.paper-grain::before {
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-olive: var(--olive);
+  --color-gold: var(--gold);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  color: var(--ink);
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0e0f0e;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-color: #0e0f0e;
+  background-image:
+    radial-gradient(42% 34% at 12% 6%, rgba(102, 104, 75, 0.2), transparent 72%),
+    radial-gradient(48% 40% at 90% 96%, rgba(184, 97, 62, 0.12), transparent 72%);
+}
+
+.site-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
+  opacity: 0.28;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-/*
- * Feathers the portrait so the artwork's own charcoal dissolves into the page
- * instead of ending on a hard line. Stacked mobile-first: fade the top edge
- * where it meets the copy, then switch to a left-edge fade once it moves
- * beside the copy on desktop.
- */
-.portrait-mask {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 25%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 25%);
+.glass {
+  background: var(--surface);
+  border: 1px solid rgba(228, 216, 190, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(228, 216, 190, 0.05),
+    0 18px 50px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-@media (min-width: 768px) {
-  .portrait-mask {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(0, 0, 0, 0.55) 12%,
-      #000 30%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(0, 0, 0, 0.55) 12%,
-      #000 30%
-    );
-  }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(228, 216, 190, 0.14);
+  background: rgba(14, 15, 14, 0.55);
+  color: var(--ink-soft);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.6rem;
 }
 
-/*
- * Reusable edge feathering for artwork whose own background must dissolve into
- * the page. Same purpose as .portrait-mask, but selectable per breakpoint.
- */
-.mask-fade-top {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(197, 106, 66, 0.45);
+  background:
+    linear-gradient(180deg, rgba(197, 106, 66, 0.16), rgba(197, 106, 66, 0.05));
+  color: var(--ink);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.7rem 0.95rem;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-@media (min-width: 768px) {
-  .md\:mask-fade-left {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(0, 0, 0, 0.5) 10%,
-      #000 26%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(0, 0, 0, 0.5) 10%,
-      #000 26%
-    );
-  }
+.btn-link:hover {
+  border-color: var(--accent);
+  background: rgba(197, 106, 66, 0.22);
+  box-shadow: 0 0 24px rgba(197, 106, 66, 0.18);
 }
 
-/*
- * The shared hero/intro portrait carries its own dark paper background. Feather
- * its left and bottom edges so that rectangle dissolves into the section on
- * BOTH the charcoal hero and the olive Personal-Introduction background, rather
- * than reading as a hard-edged box. Right edge bleeds off-screen; the top rises
- * off-screen as the portrait travels up into Section 2, so neither needs a fade.
- */
-.portrait-frame {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%),
-    linear-gradient(to bottom, #000 76%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0%, #000 16%),
-    linear-gradient(to bottom, #000 76%, transparent 100%);
-  mask-composite: intersect;
+.btn-link-ghost {
+  border-color: rgba(228, 216, 190, 0.16);
+  background: transparent;
 }
 
-/*
- * Scroll-driven logo marquee for the Skills section. Each line loops a row of
- * brand logos; neighbouring lines drift in opposite directions off one scroll.
- */
+.btn-link-ghost:hover {
+  border-color: rgba(228, 216, 190, 0.4);
+  background: rgba(228, 216, 190, 0.05);
+  box-shadow: none;
+}
+
 .skill-logo {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 
 .skill-logo svg {
-  width: clamp(2.5rem, 5vw, 3.75rem);
+  width: clamp(2.25rem, 4.5vw, 3.25rem);
   height: auto;
-  /* Icons carry their own brand colour via inline style; steady it on hover. */
   transition: transform 0.2s ease;
 }
 
@@ -113,116 +157,94 @@
 }
 
 .skill-name {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8a8474; /* cream-dim */
+  color: #8a8474;
   white-space: nowrap;
 }
 
-/*
- * Global designed backdrop. A fixed layer behind all content: charcoal base
- * with two diffused corner glows (olive top-left, copper bottom-right) for
- * depth, plus a fine paper grain. Kept low-contrast so text stays readable.
- */
-.site-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
+
+.orbit-glow {
+  position: absolute;
+  inset: 16%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 165, 106, 0.16),
+    rgba(197, 106, 66, 0.05) 42%,
+    transparent 72%
+  );
   pointer-events: none;
-  background-color: #141412;
-  background-image:
-    radial-gradient(42% 34% at 12% 6%, rgba(52, 56, 33, 0.18), transparent 72%),
-    radial-gradient(48% 40% at 90% 96%, rgba(184, 97, 62, 0.09), transparent 72%);
 }
-.site-bg::after {
-  content: "";
+
+.orbit-path {
   position: absolute;
-  inset: 0;
-  opacity: 0.3;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  border: 1px solid rgba(196, 165, 106, 0.2);
+  box-shadow: inset 0 0 24px rgba(196, 165, 106, 0.04);
+  pointer-events: none;
 }
 
-/* ── Decorative design-system utilities ─────────────────────────────────── */
-
-/*
- * Embossed matte-paper surface for icon buttons — a raised top edge and a soft
- * inner shadow, no gloss. Pairs with .paper-grain for texture.
- */
-.decor-emboss {
-  background: #1c1c19;
-  border: 1px solid #34342c;
+.orbit-badge {
+  display: grid;
+  place-items: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 999px;
+  color: var(--gold);
+  background: rgba(18, 18, 16, 0.82);
+  border: 1px solid rgba(196, 165, 106, 0.38);
   box-shadow:
-    inset 0 1px 0 rgba(228, 216, 190, 0.06),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
-    0 1px 2px rgba(0, 0, 0, 0.3);
-  transition:
-    box-shadow 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.15s ease;
-}
-.decor-emboss:hover {
-  border-color: rgba(184, 97, 62, 0.45);
-  box-shadow:
-    inset 0 1px 0 rgba(228, 216, 190, 0.09),
-    inset 0 -2px 5px rgba(0, 0, 0, 0.45),
-    0 2px 6px rgba(0, 0, 0, 0.35);
-}
-.decor-emboss:active {
-  transform: translateY(1px);
+    inset 0 1px 0 rgba(228, 216, 190, 0.1),
+    0 0 16px rgba(196, 165, 106, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-/*
- * Left-to-right animated underline for labels / links. Draws on hover, or
- * whenever data-active="true". Copper by default; override via --decor-underline.
- */
-.decor-underline {
-  position: relative;
-}
-.decor-underline::after {
-  content: "";
+.orbit-core {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -3px;
-  height: 1px;
-  background: var(--decor-underline, #b8613e);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.decor-underline:hover::after,
-.decor-underline[data-active="true"]::after {
-  transform: scaleX(1);
-}
-@media (prefers-reduced-motion: reduce) {
-  .decor-underline::after {
-    transition: none;
-  }
-}
-
-/* Scroll-cue dot travelling down the mouse body. */
-@keyframes pulseScroll {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(6px);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.animate-pulse-scroll {
-  animation: pulseScroll 1.8s ease-in-out infinite;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 4.35rem;
+  height: 4.35rem;
+  translate: -50% -50%;
+  border-radius: 999px;
+  background: rgba(14, 15, 14, 0.9);
+  border: 1px solid rgba(196, 165, 106, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(228, 216, 190, 0.08),
+    0 0 28px rgba(196, 165, 106, 0.16);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-pulse-scroll {
-    animation: none;
+  .orbit-badge {
+    box-shadow:
+      inset 0 1px 0 rgba(228, 216, 190, 0.1),
+      0 0 12px rgba(196, 165, 106, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .skill-logo:hover svg {
+    transform: none;
   }
 }
