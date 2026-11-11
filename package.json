@@ -10,6 +10,7 @@
     "fetch-repos": "node scripts/fetch-github-repos.js"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.2",
     "next": "16.1.6",
